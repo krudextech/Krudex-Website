@@ -94,6 +94,13 @@ test('contact API endpoint validates input, honeypot and content type', async ({
   });
   expect(badJson.status()).toBe(400);
 
+  // Payload exceeding 16KB returns 413
+  const oversized = await request.post('/api/contact', {
+    headers: { 'Content-Type': 'application/json', 'x-forwarded-for': ip() },
+    data: 'x'.repeat(17 * 1024),
+  });
+  expect(oversized.status()).toBe(413);
+
   // Empty payload returns 400 Name is required
   const empty = await request.post('/api/contact', {
     headers: { 'x-forwarded-for': ip() },
