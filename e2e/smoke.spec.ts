@@ -77,19 +77,28 @@ test('contact form requires a service', async ({ page }) => {
 });
 
 test('contact API endpoint validates input, honeypot and content type', async ({ request }) => {
+  // Distinct forwarded IPs prevent rate limiting (5 req / 10 min) from tripping across desktop + mobile projects or retries in CI
+  const ip = () => `10.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250) + 1}`;
+
   // Honeypot trips and returns 201 without touching database
-  const honeypot = await request.post('/api/contact', { data: { website: 'bot-fill' } });
+  const honeypot = await request.post('/api/contact', {
+    headers: { 'x-forwarded-for': ip() },
+    data: { website: 'bot-fill' },
+  });
   expect(honeypot.status()).toBe(201);
 
   // Non-JSON request body returns 400
   const badJson = await request.post('/api/contact', {
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'x-forwarded-for': ip() },
     data: 'not a valid json string',
   });
   expect(badJson.status()).toBe(400);
 
   // Empty payload returns 400 Name is required
-  const empty = await request.post('/api/contact', { data: {} });
+  const empty = await request.post('/api/contact', {
+    headers: { 'x-forwarded-for': ip() },
+    data: {},
+  });
   expect(empty.status()).toBe(400);
   const data = await empty.json();
   expect(data.error).toBe('Name is required.');
