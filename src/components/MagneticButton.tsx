@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
+import Link from "next/link";
 import { motion, useSpring } from "framer-motion";
+
+const MotionLink = motion.create ? motion.create(Link) : motion(Link);
 
 interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -44,7 +47,7 @@ export default function MagneticButton({ children, href, className, ...props }: 
       className="inline-block relative z-10"
     >
       {href ? (
-        <motion.a
+        <MotionLink
           href={href}
           className={className}
           whileHover={{ scale: 1.05 }}
@@ -53,7 +56,7 @@ export default function MagneticButton({ children, href, className, ...props }: 
           {...(props as any)}
         >
           {children}
-        </motion.a>
+        </MotionLink>
       ) : (
         <motion.button
           className={className}

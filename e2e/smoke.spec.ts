@@ -75,3 +75,22 @@ test('contact form requires a service', async ({ page }) => {
   await page.getByRole('button', { name: /Send inquiry/ }).click();
   await expect(page.getByText('Pick at least one so we know who should reply.')).toBeVisible();
 });
+
+test('contact API endpoint validates input, honeypot and content type', async ({ request }) => {
+  // Honeypot trips and returns 201 without touching database
+  const honeypot = await request.post('/api/contact', { data: { website: 'bot-fill' } });
+  expect(honeypot.status()).toBe(201);
+
+  // Non-JSON request body returns 400
+  const badJson = await request.post('/api/contact', {
+    headers: { 'Content-Type': 'application/json' },
+    data: 'not a valid json string',
+  });
+  expect(badJson.status()).toBe(400);
+
+  // Empty payload returns 400 Name is required
+  const empty = await request.post('/api/contact', { data: {} });
+  expect(empty.status()).toBe(400);
+  const data = await empty.json();
+  expect(data.error).toBe('Name is required.');
+});

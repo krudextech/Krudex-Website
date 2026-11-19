@@ -9,6 +9,7 @@ import ProgramExplorer from '@/components/ProgramExplorer';
 import { PROGRAM_ICONS } from '@/components/programIcons';
 import TrainingPathFinder from '@/components/TrainingPathFinder';
 import { PROGRAMS, programEnquiryHref } from '@/content/training';
+import { TRAINING } from '@/content/offerings';
 import { SITE_URL } from '@/lib/site';
 
 const methodData = [
@@ -27,12 +28,6 @@ const methodData = [
     title: 'Finish with a portfolio',
     text: 'Every program ends in a deployed capstone project you can show on GitHub and in interviews.',
   },
-];
-
-const stepsData = [
-  'Send an enquiry and tell us which program interests you.',
-  'We reply within one business day.',
-  'We share the current format, dates, and fees.',
 ];
 
 const courseJsonLd = {
@@ -196,7 +191,7 @@ export default function TrainingPage() {
           </motion.h2>
 
           <ol className="flex flex-col gap-4 text-sm text-left mb-12">
-            {stepsData.map((step, i) => (
+            {TRAINING.steps.map((step, i) => (
               <li key={step} className="flex items-center gap-4 text-white/80">
                 <span className="w-7 h-7 rounded-full border border-white/25 flex items-center justify-center font-mono text-xs text-white flex-shrink-0">
                   {i + 1}

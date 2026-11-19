@@ -48,11 +48,11 @@ export function getMongoClientPromise(): Promise<MongoClient> {
 
 /**
  * Returns the MongoDB Database instance.
- * Defaults to the database named in MONGODB_DB or 'krudex-tech' (or the database specified in the URI path).
+ * Defaults to the database named in MONGODB_DB or 'krudex' (or the database specified in the URI path).
  */
 export async function getDb(dbName?: string): Promise<Db> {
   const client = await getMongoClientPromise();
-  const name = dbName || process.env.MONGODB_DB;
+  const name = dbName || process.env.MONGODB_DB || 'krudex';
   return client.db(name);
 }
 

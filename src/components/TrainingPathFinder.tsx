@@ -8,7 +8,7 @@ import { getProgram, programEnquiryHref, type ProgramId } from '@/content/traini
 type Key = 'goal' | 'level' | 'interest' | 'time';
 
 const QUESTIONS: Array<{ key: Key; label: string; options: string[] }> = [
-  { key: 'goal', label: 'What do you want from training?', options: ['Get my first job', 'Build my own product', 'Switch careers', 'Strengthen my skills'] },
+  { key: 'goal', label: 'What do you want from training?', options: ['Get a first job', 'Build a product', 'Switch careers', 'Strengthen skills'] },
   { key: 'level', label: 'Where are you today?', options: ['Complete beginner', 'Know some basics', 'Built a few projects'] },
   { key: 'interest', label: 'What excites you most?', options: ['AI, data and smart features', 'Large, structured enterprise apps', 'Building web apps quickly, end to end'] },
   { key: 'time', label: 'How much time can you give?', options: ['A few hours a week', 'Evenings and weekends', 'Full time'] },
@@ -52,11 +52,12 @@ function buildPath(a: Record<Key, string>): PathResult {
     ...modules,
     'Build and deploy your capstone project',
   ];
+  const goalPhrase = a.goal.toLowerCase().replace(/\bmy\b/g, 'your');
   return {
     programId: program.id,
     track: program.title,
     headline: beginner ? `Start your ${program.title} journey` : `Level up with ${program.title}`,
-    why: `You told us you want to ${a.goal.toLowerCase()} and enjoy ${a.interest.toLowerCase()}. This program builds those skills ${PACE[a.time]}, with guidance from industry experts.`,
+    why: `You told us you want to ${goalPhrase} and enjoy ${a.interest.toLowerCase()}. This program builds those skills ${PACE[a.time]}, with guidance from industry experts.`,
     steps,
     alsoConsider: getProgram(ALSO[program.id])?.title ?? null,
   };

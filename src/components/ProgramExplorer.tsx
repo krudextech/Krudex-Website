@@ -37,6 +37,7 @@ export default function ProgramExplorer() {
     e.preventDefault();
     const id = PROGRAMS[next].id;
     setActive(id);
+    if (typeof window !== 'undefined') window.history.replaceState(null, '', '#program-' + id);
     tabRefs.current[id]?.focus();
   }
 
@@ -72,7 +73,10 @@ export default function ProgramExplorer() {
                   aria-selected={selected}
                   aria-controls={`program-panel-${p.id}`}
                   tabIndex={selected ? 0 : -1}
-                  onClick={() => setActive(p.id)}
+                  onClick={() => {
+                    setActive(p.id);
+                    if (typeof window !== 'undefined') window.history.replaceState(null, '', '#program-' + p.id);
+                  }}
                   onKeyDown={(e) => onKeyDown(e, i)}
                   className={`scroll-mt-32 inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 text-sm font-medium transition-[background-color,color] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-krudex-accent ${
                     selected ? 'bg-krudex-accent text-krudex-black' : 'text-white/70 hover:text-white'

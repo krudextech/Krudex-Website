@@ -11,7 +11,7 @@ import { Check, Wand2 } from 'lucide-react';
  */
 
 const RULES: Array<{ service: string; words: string[] }> = [
-  { service: 'Web platform', words: ['website', 'web', 'saas', 'portal', 'dashboard', 'platform', 'crm', 'erp', 'booking', 'ecommerce', 'e-commerce', 'store', 'shop', 'marketplace', 'admin', 'software', 'tool'] },
+  { service: 'Web platform', words: ['website', 'web', 'saas', 'portal', 'dashboard', 'platform', 'crm', 'erp', 'booking', 'ecommerce', 'e commerce', 'store', 'shop', 'marketplace', 'admin', 'software', 'tool'] },
   { service: 'Mobile app', words: ['app', 'apps', 'mobile', 'android', 'ios', 'iphone', 'phone', 'play store', 'app store'] },
   { service: 'AI integration', words: ['ai', 'chatbot', 'chat bot', 'gpt', 'llm', 'machine learning', 'ml', 'automation', 'automate', 'recommendation', 'vision', 'predict', 'assistant'] },
   { service: 'UI/UX design', words: ['design', 'ui', 'ux', 'logo', 'brand', 'branding', 'figma', 'prototype', 'redesign', 'look', 'identity', 'pitch deck'] },
@@ -21,7 +21,7 @@ const RULES: Array<{ service: string; words: string[] }> = [
 ];
 
 function suggest(idea: string): string[] {
-  const text = ` ${idea.toLowerCase().replace(/[^a-z0-9+\- ]+/g, ' ')} `;
+  const text = ` ${idea.toLowerCase().replace(/[^a-z0-9+ ]+/g, ' ')} `;
   return RULES.filter((r) => r.words.some((w) => text.includes(` ${w} `) || text.includes(` ${w}s `))).map((r) => r.service);
 }
 
@@ -65,37 +65,39 @@ export default function ServiceSuggester({
         Suggest services
       </button>
 
-      {result && (
-        <div aria-live="polite" className="mt-5 border-t border-white/10 pt-5 text-sm">
-          {result.length ? (
-            <>
-              <p className="text-white/80">These look like a fit:</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {result.map((s) => (
-                  <span key={s} className="rounded-full border border-krudex-accent/50 px-3 py-1 text-xs text-krudex-accent">
-                    {s}
-                  </span>
-                ))}
-              </div>
-              <button
-                type="button"
-                onClick={() => {
-                  onApply(result, idea.trim());
-                  setApplied(true);
-                }}
-                className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full bg-krudex-accent px-5 text-sm font-semibold text-krudex-black transition-[background-color,transform] duration-200 hover:bg-krudex-accent-hover active:scale-[0.97]"
-              >
-                {applied && <Check aria-hidden="true" className="h-4 w-4" />}
-                {applied ? 'Added to your inquiry' : 'Use these'}
-              </button>
-            </>
-          ) : (
-            <p className="text-white/80">
-              We couldn&apos;t tell from that. Pick &quot;Not sure yet&quot; below and we&apos;ll work it out together on the call.
-            </p>
-          )}
-        </div>
-      )}
+      <div aria-live="polite">
+        {result && (
+          <div className="mt-5 border-t border-white/10 pt-5 text-sm">
+            {result.length ? (
+              <>
+                <p className="text-white/80">These look like a fit:</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {result.map((s) => (
+                    <span key={s} className="rounded-full border border-krudex-accent/50 px-3 py-1 text-xs text-krudex-accent">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onApply(result, idea.trim());
+                    setApplied(true);
+                  }}
+                  className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full bg-krudex-accent px-5 text-sm font-semibold text-krudex-black transition-[background-color,transform] duration-200 hover:bg-krudex-accent-hover active:scale-[0.97]"
+                >
+                  {applied && <Check aria-hidden="true" className="h-4 w-4" />}
+                  {applied ? 'Added to your inquiry' : 'Use these'}
+                </button>
+              </>
+            ) : (
+              <p className="text-white/80">
+                We couldn&apos;t tell from that. Pick &quot;Not sure yet&quot; below and we&apos;ll work it out together on the call.
+              </p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

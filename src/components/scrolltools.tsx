@@ -26,7 +26,6 @@ const tools = [
   { name: 'GraphQL', style: 'font-semibold' },
   { name: 'Supabase', style: 'font-semibold' },
   { name: 'Search Console', style: 'font-medium tracking-wide' },
-  { name: 'Next.js', style: 'italic text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-white to-gray-500 animate-shine' },
   { name: 'PostgreSQL', style: 'font-serif' },
   { name: 'MongoDB', style: 'italic' },
   { name: 'Redis', style: 'font-bold' },
@@ -59,15 +58,27 @@ const ScrollTools = () => {
         }
       `}</style>
       
-      <div className="flex w-max animate-marquee items-center gap-8 md:gap-16 pr-8 md:pr-16 hover:[animation-play-state:paused]">
-        {[...tools, ...tools].map((tool, i) => (
-          <span
-            key={i}
-            className={`text-krudex-muted/70 text-base md:text-xl select-none whitespace-nowrap transition-colors hover:text-white ${tool.style}`}
-          >
-            {tool.name}
-          </span>
-        ))}
+      <div className="flex w-max animate-marquee items-center hover:[animation-play-state:paused]">
+        <div className="flex items-center gap-8 md:gap-16 pr-8 md:pr-16">
+          {tools.map((tool, i) => (
+            <span
+              key={`visible-${i}`}
+              className={`text-krudex-muted/70 text-base md:text-xl select-none whitespace-nowrap transition-colors hover:text-white ${tool.style}`}
+            >
+              {tool.name}
+            </span>
+          ))}
+        </div>
+        <div aria-hidden="true" className="flex items-center gap-8 md:gap-16 pr-8 md:pr-16">
+          {tools.map((tool, i) => (
+            <span
+              key={`hidden-${i}`}
+              className={`text-krudex-muted/70 text-base md:text-xl select-none whitespace-nowrap transition-colors hover:text-white ${tool.style}`}
+            >
+              {tool.name}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

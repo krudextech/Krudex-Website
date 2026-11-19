@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Mail, Phone, MapPin, ChevronDown, Check, AlertCircle, ArrowRight, Loader2, MessageCircle } from 'lucide-react';
 import Turnstile, { TURNSTILE_SITE_KEY } from '@/components/Turnstile';
-import { PHONES, PHONE_DISPLAY, WHATSAPP_URL } from '@/lib/site';
+import { CONTACT_EMAIL, PHONES, PHONE_DISPLAY, WHATSAPP_URL } from '@/lib/site';
 import { faqs } from '@/lib/faqs';
 import ServiceSuggester from '@/components/ServiceSuggester';
 import { getProgram } from '@/content/training';
@@ -388,8 +388,8 @@ export default function ContactPage() {
                           <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
                           <p>
                             {error}{' '}
-                            <a href="mailto:krudextechnologies@gmail.com" className="underline underline-offset-4">
-                              krudextechnologies@gmail.com
+                            <a href={`mailto:${CONTACT_EMAIL}`} className="underline underline-offset-4">
+                              {CONTACT_EMAIL}
                             </a>
                           </p>
                         </div>
@@ -445,7 +445,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-mono mb-1">EMAIL</span>
-                  <a href="mailto:krudextechnologies@gmail.com" className="inline-flex items-center min-h-11 text-white font-medium text-sm underline-offset-4 hover:underline [overflow-wrap:anywhere]">krudextechnologies@gmail.com</a>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center min-h-11 text-white font-medium text-sm underline-offset-4 hover:underline [overflow-wrap:anywhere]">{CONTACT_EMAIL}</a>
                 </div>
               </div>
 
