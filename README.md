@@ -38,7 +38,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, **Three.js / React Three F
 ## 📂 Project Architecture
 
 ```
-Krudex-Tech/
+Krudex-Website/
 ├── public/                 # Static assets (images, icons, models)
 ├── src/
 │   ├── app/                # Next.js App Router routes & pages
