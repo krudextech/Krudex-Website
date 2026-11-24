@@ -156,7 +156,8 @@ export default function QuickAnswers() {
                     setSubmitted(e.target.value);
                   }}
                   placeholder="e.g. Who owns the code?"
-                  className="min-h-11 flex-1 bg-transparent text-sm text-white placeholder:text-white/35 focus:outline-none focus-visible:outline-none"
+                  style={{ outline: 'none' }}
+                  className="min-h-11 flex-1 border-none bg-transparent text-sm text-white placeholder:text-white/35 outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0"
                 />
               </div>
             </form>

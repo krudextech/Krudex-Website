@@ -122,6 +122,16 @@ body {
   outline-offset: 3px;
 }
 
+/* Form controls handle focus via their own borders/rings or parent focus-within */
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible {
+  outline: none;
+}
+
 /* Frosted pill used on the 404 page */
 .liquid-glass {
   background: rgba(255,255,255, 0.06);
