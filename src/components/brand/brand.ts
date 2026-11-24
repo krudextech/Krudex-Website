@@ -11,11 +11,11 @@
  */
 export const BRAND = {
   name: 'Krudex Global',
-  /** Blue KK logo with KRUDEX and "Build · Solve · Scale", trimmed to its edges. */
+  /** Krudex wordmark with signature blue X, trimmed to its edges. */
   logoSrc: '/brand/krudex-global-logo-royal.png',
-  logoWidth: 334,
-  logoHeight: 221,
-  /** Blue KK symbol alone, 512×512 transparent, for structured data. */
+  logoWidth: 493,
+  logoHeight: 140,
+  /** Krudex mark, 512×512 transparent, for structured data. */
   markSmallSrc: '/brand/krudex-global-mark-royal-512.png',
-  logoAlt: 'Krudex Global: Build, Solve, Scale',
+  logoAlt: 'Krudex Global',
 } as const;
