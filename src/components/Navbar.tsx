@@ -12,7 +12,7 @@ const navLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Training', href: '/training' },
   { label: 'About', href: '/about' },
-  { label: 'Our Team', href: '/our-team' },
+  // { label: 'Our Team', href: '/our-team' }, // Temporarily hidden; uncomment to re-enable
 ];
 
 const MotionLink = motion.create ? motion.create(Link) : motion(Link);

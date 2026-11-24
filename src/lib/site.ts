@@ -38,7 +38,7 @@ export const ROUTES = [
   { path: '/training', priority: 0.8, changeFrequency: 'weekly', lastModified: '2026-11-05' },
   { path: '/contact', priority: 0.8, changeFrequency: 'monthly', lastModified: '2026-11-09' },
   { path: '/about', priority: 0.7, changeFrequency: 'monthly', lastModified: '2026-11-04' },
-  { path: '/our-team', priority: 0.6, changeFrequency: 'monthly', lastModified: '2026-11-05' },
+  // { path: '/our-team', priority: 0.6, changeFrequency: 'monthly', lastModified: '2026-11-05' }, // Temporarily hidden; uncomment to re-enable
   { path: '/privacy', priority: 0.2, changeFrequency: 'yearly', lastModified: '2026-11-09' },
   { path: '/terms', priority: 0.2, changeFrequency: 'yearly', lastModified: '2026-11-03' },
 ] as const;

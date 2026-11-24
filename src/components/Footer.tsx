@@ -14,7 +14,7 @@ const footerLinks = [
     title: 'Company',
     links: [
       { label: 'About', href: '/about' },
-      { label: 'Our Team', href: '/our-team' },
+      // { label: 'Our Team', href: '/our-team' }, // Temporarily hidden; uncomment to re-enable
     ],
   },
   {

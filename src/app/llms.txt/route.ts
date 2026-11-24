@@ -54,7 +54,6 @@ Key facts:
 - [Services](${url('/services')}): Full detail on each service, with capabilities and outcomes
 - [Student training](${url('/training')}): Programs, modules, tech stack and capstone projects
 - [About](${url('/about')}): Company background, vision and principles
-- [Our team](${url('/our-team')}): The people who scope and build each project
 - [Contact](${url('/contact')}): Project inquiries, training enquiries and frequently asked questions
 
 ## Services
