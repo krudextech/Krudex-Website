@@ -157,12 +157,13 @@ const Platform = ({ position, size, label, sideLabel }: PlatformProps) => {
         <Text
           position={[0, 0.05, 0]}
           rotation={[-Math.PI / 2, 0, -Math.PI / 4]}
+          font="/fonts/outfit-600.woff"
           fontSize={w * 0.20}
           color="#FAFAFA"
           anchorX="center"
           anchorY="middle"
-          fillOpacity={0.9}
-          letterSpacing={0.1}
+          fillOpacity={0.95}
+          letterSpacing={0.12}
         >
           {label}
         </Text>
@@ -182,14 +183,15 @@ const Platform = ({ position, size, label, sideLabel }: PlatformProps) => {
         <Text
           position={[0, -1.2, d / 2 + 0.05]} // Positioned cleanly on the top part of the side face
           rotation={[0, 0, 0]} // Horizontal across the face
-          fontSize={w * 0.11}
+          font="/fonts/plus-jakarta-sans-600.woff"
+          fontSize={w * 0.105}
           color="#2B7BB4"
           anchorX="center"
           anchorY="middle"
-          fillOpacity={0.85}
-          letterSpacing={0.1}
+          fillOpacity={0.9}
+          letterSpacing={0.08}
           maxWidth={w * 0.85} // Constrain text inside the pillar width
-          lineHeight={1.2}
+          lineHeight={1.25}
           textAlign="center"
         >
           {sideLabel}
