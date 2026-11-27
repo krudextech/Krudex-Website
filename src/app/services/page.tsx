@@ -15,7 +15,7 @@ const EASE_OUT = [0.23, 1, 0.32, 1] as const;
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-black flex flex-col">
+    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-accent-fg flex flex-col">
       <Navbar />
 
       <section className="px-6 md:px-16 lg:px-24 pt-32 md:pt-40 pb-16 md:pb-20 bg-krudex-black/40 backdrop-blur-md relative z-10">
@@ -126,7 +126,7 @@ export default function ServicesPage() {
             </div>
             <Link
               href="/training"
-              className="group inline-flex items-center gap-2 self-start md:self-auto whitespace-nowrap border border-white/30 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-krudex-accent hover:text-krudex-black active:scale-[0.97] transition-[background-color,color,transform] duration-200"
+              className="group inline-flex items-center gap-2 self-start md:self-auto whitespace-nowrap border border-white/30 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-krudex-accent hover:border-krudex-accent hover:text-krudex-accent-fg active:scale-[0.97] transition-[background-color,border-color,color,transform] duration-200"
             >
               See Student Training
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

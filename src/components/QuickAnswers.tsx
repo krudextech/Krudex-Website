@@ -210,7 +210,7 @@ export default function QuickAnswers() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="flex min-h-10 flex-1 items-center justify-center rounded-full bg-krudex-accent text-sm font-semibold text-krudex-black transition-[background-color,transform] duration-150 hover:bg-krudex-accent-hover active:scale-[0.97]"
+                className="flex min-h-10 flex-1 items-center justify-center rounded-full bg-krudex-accent text-sm font-semibold text-krudex-accent-fg transition-[background-color,transform] duration-150 hover:bg-krudex-accent-hover active:scale-[0.97]"
               >
                 Contact us
               </Link>

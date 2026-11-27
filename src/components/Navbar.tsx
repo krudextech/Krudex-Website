@@ -91,7 +91,7 @@ const Navbar = () => {
             href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="whitespace-nowrap inline-flex items-center min-h-11 text-[14px] min-[1920px]:text-[16px] font-medium text-white border border-white/20 bg-white/5 px-5 rounded-full hover:bg-krudex-accent hover:text-krudex-black hover:border-krudex-accent hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300"
+            className="whitespace-nowrap inline-flex items-center min-h-11 text-[14px] min-[1920px]:text-[16px] font-medium text-white border border-white/20 bg-white/5 px-5 rounded-full hover:bg-krudex-accent hover:text-krudex-accent-fg hover:border-krudex-accent hover:shadow-[0_0_25px_rgba(43,123,180,0.45)] transition-all duration-300"
           >
             Contact Us
           </MotionLink>
@@ -187,7 +187,7 @@ const Navbar = () => {
                   <Link
                     href="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-center w-full min-h-12 text-krudex-black bg-krudex-accent px-6 rounded-full text-[15px] font-semibold hover:bg-krudex-accent-hover transition-all duration-300"
+                    className="flex items-center justify-center w-full min-h-12 text-krudex-accent-fg bg-krudex-accent px-6 rounded-full text-[15px] font-semibold hover:bg-krudex-accent-hover transition-all duration-300"
                   >
                     Contact Us
                   </Link>

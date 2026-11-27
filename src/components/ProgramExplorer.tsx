@@ -79,7 +79,7 @@ export default function ProgramExplorer() {
                   }}
                   onKeyDown={(e) => onKeyDown(e, i)}
                   className={`scroll-mt-32 inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 text-sm font-medium transition-[background-color,color] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-krudex-accent ${
-                    selected ? 'bg-krudex-accent text-krudex-black' : 'text-white/70 hover:text-white'
+                    selected ? 'bg-krudex-accent text-krudex-accent-fg' : 'text-white/70 hover:text-white'
                   }`}
                 >
                   <Icon aria-hidden="true" className="h-4 w-4" />
@@ -126,7 +126,7 @@ export default function ProgramExplorer() {
 
                 <Link
                   href={programEnquiryHref(p.id)}
-                  className="group mt-10 inline-flex items-center gap-2 bg-krudex-accent text-krudex-black px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-200"
+                  className="group mt-10 inline-flex items-center gap-2 bg-krudex-accent text-krudex-accent-fg px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-200"
                 >
                   Enquire about {p.shortTitle}
                   <ArrowRight aria-hidden="true" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

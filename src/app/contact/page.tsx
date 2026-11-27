@@ -47,7 +47,7 @@ const inputClass =
   'w-full bg-white/[0.03] border border-white/15 rounded-md px-4 py-3.5 text-white text-base md:text-sm placeholder:text-white/30 transition-colors hover:border-white/30 focus:outline-none focus:border-krudex-accent focus:ring-1 focus:ring-krudex-accent';
 const labelClass = 'text-[13px] font-medium text-white/80';
 const chipClass =
-  'inline-flex items-center gap-2 min-h-11 cursor-pointer select-none rounded-full border border-white/15 px-4 text-[14px] text-white/70 transition-colors hover:border-white/40 hover:text-white peer-checked:border-krudex-accent peer-checked:bg-krudex-accent peer-checked:text-krudex-black peer-checked:font-medium peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-krudex-accent';
+  'inline-flex items-center gap-2 min-h-11 cursor-pointer select-none rounded-full border border-white/15 px-4 text-[14px] text-white/70 transition-colors hover:border-white/40 hover:text-white peer-checked:border-krudex-accent peer-checked:bg-krudex-accent peer-checked:text-krudex-accent-fg peer-checked:font-medium peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-krudex-accent';
 
 // Preselects the training option for visitors arriving from /training, and
 // names the program when ?program= matches one of ours (unknown values are ignored).
@@ -164,7 +164,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-black flex flex-col">
+    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-accent-fg flex flex-col">
       <Suspense fallback={null}>
         <TrainingInterest onMatch={selectTraining} />
       </Suspense>
@@ -224,7 +224,7 @@ export default function ContactPage() {
                     role="status"
                     className="flex flex-col items-start py-8"
                   >
-                    <div className="w-12 h-12 rounded-full bg-krudex-accent text-krudex-black flex items-center justify-center mb-8">
+                    <div className="w-12 h-12 rounded-full bg-krudex-accent text-krudex-accent-fg flex items-center justify-center mb-8">
                       <Check className="w-6 h-6" strokeWidth={2.5} />
                     </div>
                     <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">Inquiry received.</h2>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                     <button
                       type="button"
                       onClick={() => setIsSuccess(false)}
-                      className="border border-white/30 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-krudex-accent hover:text-krudex-black transition-colors"
+                      className="border border-white/30 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-krudex-accent hover:border-krudex-accent hover:text-krudex-accent-fg transition-colors"
                     >
                       Send another inquiry
                     </button>
@@ -397,7 +397,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="group w-full bg-krudex-accent text-krudex-black font-semibold py-4 rounded-full hover:bg-krudex-accent-hover transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="group w-full bg-krudex-accent text-krudex-accent-fg font-semibold py-4 rounded-full hover:bg-krudex-accent-hover transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>

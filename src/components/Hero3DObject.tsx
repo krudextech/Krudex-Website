@@ -130,19 +130,19 @@ const Platform = ({ position, size, label, sideLabel }: PlatformProps) => {
 
       {/* 1. Neon Glowing Edge Frame (Seamless) */}
       <group rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
-        {/* Core solid bright white frame */}
+        {/* Core solid bright accent frame */}
         <mesh geometry={frameGeometry}>
-          <meshBasicMaterial color="#FFFFFF" />
+          <meshBasicMaterial color="#2B7BB4" />
         </mesh>
 
         {/* Soft Bloom layers (transparent, additive blending) */}
         <mesh geometry={bloomGeometry} position={[0, 0, -0.01]}>
-          <meshBasicMaterial color="#FFFFFF" transparent opacity={0.25} blending={THREE.AdditiveBlending} depthWrite={false} />
+          <meshBasicMaterial color="#2B7BB4" transparent opacity={0.3} blending={THREE.AdditiveBlending} depthWrite={false} />
         </mesh>
 
         {/* Outer large diffuse glow */}
         <mesh geometry={outerGlowGeometry} position={[0, 0, -0.02]}>
-          <meshBasicMaterial color="#FFFFFF" transparent opacity={0.08} blending={THREE.AdditiveBlending} depthWrite={false} />
+          <meshBasicMaterial color="#2B7BB4" transparent opacity={0.12} blending={THREE.AdditiveBlending} depthWrite={false} />
         </mesh>
       </group>
 
@@ -174,7 +174,7 @@ const Platform = ({ position, size, label, sideLabel }: PlatformProps) => {
         {/* Custom shader for smooth vertical gradient fading into darkness */}
         <primitive object={pillarMaterial} attach="material" />
         {/* Subtle structural edge highlights to enhance the 3D volume */}
-        <Edges scale={1.001} threshold={15} color="#FFFFFF" transparent opacity={0.15} />
+        <Edges scale={1.001} threshold={15} color="#2B7BB4" transparent opacity={0.22} />
       </mesh>
 
       {/* 4. Side Label Text on the pillar face */}
@@ -183,10 +183,10 @@ const Platform = ({ position, size, label, sideLabel }: PlatformProps) => {
           position={[0, -1.2, d / 2 + 0.05]} // Positioned cleanly on the top part of the side face
           rotation={[0, 0, 0]} // Horizontal across the face
           fontSize={w * 0.11}
-          color="#FFFFFF"
+          color="#2B7BB4"
           anchorX="center"
           anchorY="middle"
-          fillOpacity={0.6}
+          fillOpacity={0.85}
           letterSpacing={0.1}
           maxWidth={w * 0.85} // Constrain text inside the pillar width
           lineHeight={1.2}

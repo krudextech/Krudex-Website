@@ -52,14 +52,14 @@ const CTA = () => {
         >
           <MagneticButton
             href="/contact"
-            className="inline-flex items-center gap-2 bg-krudex-accent text-krudex-black px-8 py-4 rounded-full font-medium text-sm hover:bg-krudex-accent-hover transition-colors duration-300"
+            className="inline-flex items-center gap-2 bg-krudex-accent text-krudex-accent-fg px-8 py-4 rounded-full font-medium text-sm hover:bg-krudex-accent-hover transition-colors duration-300"
           >
             Contact Us
             <ArrowRight className="w-4 h-4" />
           </MagneticButton>
           <MagneticButton
             href="/services"
-            className="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-krudex-accent hover:text-krudex-black transition-all duration-300"
+            className="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-krudex-accent hover:border-krudex-accent hover:text-krudex-accent-fg transition-all duration-300"
           >
             Explore Services
           </MagneticButton>

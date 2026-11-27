@@ -33,7 +33,7 @@ const HomeFaq = () => {
           </p>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full font-medium text-sm hover:bg-krudex-accent hover:text-krudex-black active:scale-[0.97] transition-[background-color,color,transform] duration-200"
+            className="group inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full font-medium text-sm hover:bg-krudex-accent hover:border-krudex-accent hover:text-krudex-accent-fg active:scale-[0.97] transition-[background-color,border-color,color,transform] duration-200"
           >
             Ask us anything
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -63,11 +63,11 @@ function Mobile() {
         <div className="rounded-[24px] bg-[#121212] p-3">
           <p className="text-[10px] text-white/45">Good morning</p>
           <p className="text-sm font-bold text-white">Your orders</p>
-          <div className="mt-3 rounded-2xl bg-gradient-to-br from-krudex-accent to-[#525252] p-3 text-krudex-black">
-            <p className="text-[9px] font-semibold uppercase tracking-wider opacity-70">Arriving today</p>
+          <div className="mt-3 rounded-2xl bg-gradient-to-br from-krudex-accent to-[#1B4E73] p-3 text-krudex-accent-fg">
+            <p className="text-[9px] font-semibold uppercase tracking-wider opacity-80">Arriving today</p>
             <p className="mt-1 text-[15px] font-extrabold">Order #2041</p>
-            <div className="mt-2 h-1.5 rounded-full bg-black/15">
-              <div className="h-full w-2/3 rounded-full bg-krudex-black/70" />
+            <div className="mt-2 h-1.5 rounded-full bg-white/20">
+              <div className="h-full w-2/3 rounded-full bg-white/85" />
             </div>
           </div>
           {[0, 1, 2].map((i) => (
@@ -99,7 +99,7 @@ function Ai() {
   return (
     <div className={`${panel} w-full max-w-[440px] p-4`}>
       <div className="flex items-center gap-2 border-b border-white/10 pb-3">
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-krudex-accent text-[10px] font-black text-krudex-black">AI</span>
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-krudex-accent text-[10px] font-black text-krudex-accent-fg">AI</span>
         <p className="text-[12px] font-semibold text-white">Knowledge assistant</p>
         <span className="ml-auto rounded-full bg-emerald-400/15 px-2 py-0.5 text-[9px] font-semibold text-emerald-300">Live</span>
       </div>
@@ -128,7 +128,7 @@ function Design() {
   return (
     <div className={`${panel} relative w-full max-w-[460px] p-4`}>
       <div className="flex items-center gap-2">
-        {['#E5E5E5', '#FFFFFF', '#525252', '#000000', '#FAFAFA'].map((c) => (
+        {['#5BA4D8', '#2B7BB4', '#1B4E73', '#000000', '#FAFAFA'].map((c) => (
           <span key={c} className="h-6 w-6 rounded-full border border-white/15" style={{ background: c }} />
         ))}
         <span className="ml-auto text-[10px] font-semibold text-white/45">Design system · v2</span>
@@ -138,7 +138,7 @@ function Design() {
           <p className="text-[18px] font-extrabold leading-none tracking-tight text-white">Aa</p>
           <p className="mt-1 text-[9px] text-white/45">Plus Jakarta Sans · 800</p>
           <div className="mt-3 flex gap-2">
-            <span className="rounded-full bg-krudex-accent px-3 py-1 text-[10px] font-bold text-krudex-black">Primary</span>
+            <span className="rounded-full bg-krudex-accent px-3 py-1 text-[10px] font-bold text-krudex-accent-fg">Primary</span>
             <span className="rounded-full border border-white/20 px-3 py-1 text-[10px] font-semibold text-white">Secondary</span>
           </div>
         </div>
@@ -157,7 +157,7 @@ function Design() {
         ))}
       </div>
       {/* Cursor */}
-      <svg viewBox="0 0 24 24" className="absolute right-10 top-24 h-5 w-5 drop-shadow" fill="#FFFFFF">
+      <svg viewBox="0 0 24 24" className="absolute right-10 top-24 h-5 w-5 drop-shadow" fill="#2B7BB4">
         <path d="M4 2l16 9-7 2-3 7z" />
       </svg>
     </div>
@@ -186,12 +186,12 @@ function Marketing() {
       <svg viewBox="0 0 300 100" className="mt-3 h-28 w-full rounded-xl bg-white/[0.03]" preserveAspectRatio="none">
         <defs>
           <linearGradient id="mk-fill" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stopColor="#FFFFFF" stopOpacity="0.35" />
-            <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
+            <stop offset="0" stopColor="#2B7BB4" stopOpacity="0.38" />
+            <stop offset="1" stopColor="#2B7BB4" stopOpacity="0" />
           </linearGradient>
         </defs>
         <path d="M0 82 L30 76 L60 79 L90 64 L120 66 L150 52 L180 55 L210 40 L240 34 L270 24 L300 16 L300 100 L0 100Z" fill="url(#mk-fill)" />
-        <path d="M0 82 L30 76 L60 79 L90 64 L120 66 L150 52 L180 55 L210 40 L240 34 L270 24 L300 16" fill="none" stroke="#FFFFFF" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
+        <path d="M0 82 L30 76 L60 79 L90 64 L120 66 L150 52 L180 55 L210 40 L240 34 L270 24 L300 16" fill="none" stroke="#2B7BB4" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
       </svg>
       <div className="mt-3 flex flex-wrap gap-1.5">
         {['Google Ads', 'Meta', 'SEO', 'GA4'].map((c) => (
@@ -218,7 +218,7 @@ function Training() {
           <li key={m} className="flex items-center gap-3 rounded-xl bg-white/[0.04] px-3 py-2">
             <span
               className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${
-                i < 2 ? 'bg-krudex-accent text-krudex-black' : 'border border-white/20 text-white/50'
+                i < 2 ? 'bg-krudex-accent text-krudex-accent-fg' : 'border border-white/20 text-white/50'
               }`}
             >
               {i < 2 ? '✓' : i + 1}

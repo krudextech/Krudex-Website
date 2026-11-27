@@ -104,7 +104,7 @@ export default function TrainingPathFinder() {
                       checked={answers[q.key] === opt}
                       onChange={() => setAnswers((a) => ({ ...a, [q.key]: opt }))}
                     />
-                    <span className="inline-flex items-center min-h-11 cursor-pointer select-none rounded-full border border-white/15 px-4 text-[14px] text-white/70 transition-colors hover:border-white/40 hover:text-white peer-checked:border-krudex-accent peer-checked:bg-krudex-accent peer-checked:text-krudex-black peer-checked:font-medium peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-krudex-accent">
+                    <span className="inline-flex items-center min-h-11 cursor-pointer select-none rounded-full border border-white/15 px-4 text-[14px] text-white/70 transition-colors hover:border-white/40 hover:text-white peer-checked:border-krudex-accent peer-checked:bg-krudex-accent peer-checked:text-krudex-accent-fg peer-checked:font-medium peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-krudex-accent">
                       {opt}
                     </span>
                   </label>
@@ -117,7 +117,7 @@ export default function TrainingPathFinder() {
             type="button"
             onClick={find}
             disabled={!complete}
-            className="self-start inline-flex min-h-12 items-center gap-2 rounded-full bg-krudex-accent px-7 text-sm font-semibold text-krudex-black transition-[background-color,opacity,transform] duration-200 hover:bg-krudex-accent-hover active:scale-[0.97] disabled:opacity-40"
+            className="self-start inline-flex min-h-12 items-center gap-2 rounded-full bg-krudex-accent px-7 text-sm font-semibold text-krudex-accent-fg transition-[background-color,opacity,transform] duration-200 hover:bg-krudex-accent-hover active:scale-[0.97] disabled:opacity-40"
           >
             <Compass aria-hidden="true" className="h-4 w-4" />
             Suggest my path

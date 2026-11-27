@@ -33,7 +33,7 @@ export default async function Image() {
           <div style={{ fontSize: 30, color: '#8F8F8F', lineHeight: 1.4 }}>
             SaaS products, Google Ads &amp; digital marketing, and student training, from Hyderabad to the world.
           </div>
-          <div style={{ width: 96, height: 4, background: '#FFFFFF', marginTop: 8 }} />
+          <div style={{ width: 96, height: 4, background: '#2B7BB4', marginTop: 8 }} />
         </div>
       </div>
     ),

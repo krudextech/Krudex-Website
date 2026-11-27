@@ -10,8 +10,8 @@ const teamMembers = [
     name: "Kushwant Kumar Reddy",
     role: "Founder & Principal Engineer",
     initials: "KK",
-    accent: "#FFFFFF",
-    accentRgb: "255, 255, 255",
+    accent: "#2B7BB4",
+    accentRgb: "43, 123, 180",
     bio: "Founding engineer leading every client engagement end-to-end — from technical scoping through production deployment. Specializes in full-stack web engineering, computer vision, and ML systems.",
     skills: ["Next.js", "FastAPI", "TensorFlow", "Computer Vision", "System Design"],
     socials: [
@@ -24,8 +24,8 @@ const teamMembers = [
     name: "Sri Likhin Prasad",
     role: "Co-Founder",
     initials: "SL",
-    accent: "#FFFFFF",
-    accentRgb: "255, 255, 255",
+    accent: "#2B7BB4",
+    accentRgb: "43, 123, 180",
     bio: "Architects scalable solutions and ensures every digital product meets rigorous standards for performance and reliability. Champion of the 'Architecture first' principle.",
     skills: ["Architecture", "Systems Integration", "React", "DevOps", "Scaling"],
     socials: [
@@ -37,8 +37,8 @@ const teamMembers = [
     name: "Abhinay Reddy",
     role: "Chief Technology Officer",
     initials: "AR",
-    accent: "#FFFFFF",
-    accentRgb: "255, 255, 255",
+    accent: "#2B7BB4",
+    accentRgb: "43, 123, 180",
     bio: "Leads technology at Krudex: sets the technical direction, owns architecture and engineering standards, and makes sure every product is built to last.",
     skills: ["Technical Strategy", "System Architecture", "Engineering Leadership", "Cloud", "Product Delivery"],
     socials: [
@@ -49,8 +49,8 @@ const teamMembers = [
     name: "Anil",
     role: "Marketing Lead",
     initials: "AN",
-    accent: "#FFFFFF",
-    accentRgb: "255, 255, 255",
+    accent: "#2B7BB4",
+    accentRgb: "43, 123, 180",
     bio: "Leads Krudex's marketing: positioning, campaigns and brand presence, so the right customers find our products and services.",
     skills: ["Marketing Strategy", "Brand", "Campaign Planning", "Content", "Market Research"],
     socials: [
@@ -61,8 +61,8 @@ const teamMembers = [
     name: "Vivek Krishna",
     role: "Lead Android Developer",
     initials: "VK",
-    accent: "#FFFFFF",
-    accentRgb: "255, 255, 255",
+    accent: "#2B7BB4",
+    accentRgb: "43, 123, 180",
     bio: "Leads Android development at Krudex, building fast, reliable native apps with clean architecture and a polished user experience.",
     skills: ["Kotlin", "Jetpack Compose", "Android SDK", "Firebase", "Play Store Release"],
     socials: [
@@ -73,8 +73,8 @@ const teamMembers = [
     name: "Allu Nanda Kishore",
     role: "Digital Marketing Head",
     initials: "AK",
-    accent: "#FFFFFF",
-    accentRgb: "255, 255, 255",
+    accent: "#2B7BB4",
+    accentRgb: "43, 123, 180",
     bio: "Heads digital marketing for Krudex and its clients, running Google Ads, SEO, social and content as one system measured by leads and revenue.",
     skills: ["Google Ads", "SEO", "Social Media", "Analytics", "Performance Marketing"],
     socials: [
@@ -85,8 +85,8 @@ const teamMembers = [
     name: "Karing Raghawendhra",
     role: "Lead AI/ML Engineer",
     initials: "KR",
-    accent: "#FFFFFF",
-    accentRgb: "255, 255, 255",
+    accent: "#2B7BB4",
+    accentRgb: "43, 123, 180",
     bio: "Leads AI and machine learning work: designing and building intelligent features, from LLM integrations to custom models, that work reliably in production.",
     skills: ["Machine Learning", "LLMs", "Python", "Computer Vision", "MLOps"],
     socials: [
@@ -97,8 +97,8 @@ const teamMembers = [
     name: "Siddharth Naidu",
     role: "Training Team Lead (Students)",
     initials: "SN",
-    accent: "#FFFFFF",
-    accentRgb: "255, 255, 255",
+    accent: "#2B7BB4",
+    accentRgb: "43, 123, 180",
     bio: "Leads student training at Krudex with NovaSkill Hub, shaping programs with industry experts so students learn how the work is done in practice.",
     skills: ["Training Programs", "Mentoring", "Curriculum Design", "Student Success", "Industry Partnerships"],
     socials: [
@@ -109,7 +109,7 @@ const teamMembers = [
 
 export default function OurTeamPage() {
   return (
-    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-black flex flex-col">
+    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-accent-fg flex flex-col">
       <Navbar />
 
       {/* === Hero Section === */}
@@ -124,7 +124,7 @@ export default function OurTeamPage() {
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="absolute -top-32 -left-32 w-96 h-96 rounded-full blur-[128px] opacity-[0.07]"
-            style={{ background: "#FFFFFF" }}
+            style={{ background: "#2B7BB4" }}
           />
           <motion.div
             animate={{
@@ -134,7 +134,7 @@ export default function OurTeamPage() {
             }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full blur-[128px] opacity-[0.05]"
-            style={{ background: "#FFFFFF" }}
+            style={{ background: "#2B7BB4" }}
           />
         </div>
 

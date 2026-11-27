@@ -45,7 +45,7 @@ const courseJsonLd = {
 
 export default function TrainingPage() {
   return (
-    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-black flex flex-col">
+    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-accent-fg flex flex-col">
       <JsonLd data={courseJsonLd} />
       <Navbar />
 
@@ -100,7 +100,7 @@ export default function TrainingPage() {
 
               <Link
                 href={programEnquiryHref()}
-                className="group flex items-center gap-2 bg-krudex-accent text-krudex-black px-8 py-4 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-200"
+                className="group flex items-center gap-2 bg-krudex-accent text-krudex-accent-fg px-8 py-4 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-200"
               >
                 Enquire About Training
                 <ArrowRight aria-hidden="true" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -203,7 +203,7 @@ export default function TrainingPage() {
 
           <Link
             href={programEnquiryHref()}
-            className="group flex items-center gap-2 bg-krudex-accent text-krudex-black px-8 py-4 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-200"
+            className="group flex items-center gap-2 bg-krudex-accent text-krudex-accent-fg px-8 py-4 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover active:scale-[0.97] transition-[background-color,transform] duration-200"
           >
             Enquire About Training
             <ArrowRight aria-hidden="true" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

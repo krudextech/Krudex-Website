@@ -59,7 +59,7 @@ export default function ServiceSuggester({
         type="button"
         onClick={() => setResult(suggest(idea))}
         disabled={idea.trim().length < 5}
-        className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full border border-krudex-accent/60 px-5 text-sm font-medium text-white transition-[background-color,color,opacity,transform] duration-200 hover:bg-krudex-accent hover:text-krudex-black active:scale-[0.97] disabled:opacity-40"
+        className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full border border-krudex-accent/60 px-5 text-sm font-medium text-white transition-[background-color,border-color,color,opacity,transform] duration-200 hover:bg-krudex-accent hover:border-krudex-accent hover:text-krudex-accent-fg active:scale-[0.97] disabled:opacity-40"
       >
         <Wand2 aria-hidden="true" className="h-4 w-4" />
         Suggest services
@@ -84,7 +84,7 @@ export default function ServiceSuggester({
                     onApply(result, idea.trim());
                     setApplied(true);
                   }}
-                  className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full bg-krudex-accent px-5 text-sm font-semibold text-krudex-black transition-[background-color,transform] duration-200 hover:bg-krudex-accent-hover active:scale-[0.97]"
+                  className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full bg-krudex-accent px-5 text-sm font-semibold text-krudex-accent-fg transition-[background-color,transform] duration-200 hover:bg-krudex-accent-hover active:scale-[0.97]"
                 >
                   {applied && <Check aria-hidden="true" className="h-4 w-4" />}
                   {applied ? 'Added to your inquiry' : 'Use these'}

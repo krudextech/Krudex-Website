@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-/* Black + White monochrome theme. Neutrals are pure black and gray so white reads
-   as the brand color; white is reserved for actions and highlights. */
+/* Black + Signature Blue theme. Neutrals remain pure black and gray; #2B7BB4
+   is reserved for actions, highlights, and accents. */
 @theme {
   --color-white: #FAFAFA; /* neutral off-white — every text-white / border-white/* follows */
   --color-krudex-white: #FAFAFA;
@@ -12,8 +12,9 @@
   --color-krudex-border: #262626;
   --color-krudex-text: #EDEDED;
   --color-krudex-muted: #8F8F8F; /* 6.5:1 on krudex-black */
-  --color-krudex-accent: #FFFFFF; /* white, 21:1 with black text */
-  --color-krudex-accent-hover: #D4D4D4;
+  --color-krudex-accent: #2B7BB4; /* signature Krudex blue, 4.57:1 with #FFFFFF text */
+  --color-krudex-accent-hover: #236899; /* 5.98:1 with #FFFFFF text */
+  --color-krudex-accent-fg: #FFFFFF;
   --font-sans: var(--font-sans-primary);
   --font-serif: var(--font-serif-primary);
 }
@@ -90,7 +91,7 @@ body {
 }
 
 ::selection {
-  background: rgba(255,255,255, 0.3);
+  background: rgba(43, 123, 180, 0.35);
   color: var(--color-krudex-white);
 }
 

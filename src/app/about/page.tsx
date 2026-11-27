@@ -55,7 +55,7 @@ const principlesData = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-black flex flex-col">
+    <main className="min-h-svh bg-transparent selection:bg-krudex-accent selection:text-krudex-accent-fg flex flex-col">
       <Navbar />
       
       {/* 1. Hero Section */}
@@ -248,7 +248,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link href="/contact" className="group flex items-center gap-2 bg-krudex-accent text-krudex-black px-8 py-4 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover transition-colors">
+            <Link href="/contact" className="group flex items-center gap-2 bg-krudex-accent text-krudex-accent-fg px-8 py-4 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover transition-colors">
               Contact Us
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
