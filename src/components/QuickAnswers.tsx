@@ -106,7 +106,7 @@ export default function QuickAnswers() {
         aria-label={open ? 'Close quick answers' : 'Quick answers: questions about Krudex'}
         aria-expanded={open}
         aria-controls="quick-answers"
-        className="fixed bottom-[calc(max(1.25rem,env(safe-area-inset-bottom))+4.25rem)] right-[max(1.25rem,env(safe-area-inset-right))] z-40 flex h-14 w-14 items-center justify-center rounded-2xl border border-krudex-accent/40 bg-krudex-card text-krudex-accent shadow-[0_12px_30px_-8px_rgba(0,0,0,0.6)] transition-[transform,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-krudex-accent active:scale-[0.95]"
+        className="fixed bottom-[calc(max(1.25rem,env(safe-area-inset-bottom))+4.25rem)] right-[max(1.25rem,env(safe-area-inset-right))] z-40 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/25 bg-krudex-card text-white shadow-[0_12px_30px_-8px_rgba(0,0,0,0.6)] transition-[transform,border-color,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-white/60 hover:bg-krudex-surface active:scale-[0.95]"
       >
         {open ? <X aria-hidden="true" className="h-6 w-6" /> : <MessageCircleQuestion aria-hidden="true" className="h-6 w-6" />}
       </button>
