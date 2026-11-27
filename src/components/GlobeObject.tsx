@@ -16,6 +16,50 @@ const MARKERS = [
   { location: [-23.5505, -46.6333] as [number, number], size: 0.05 },// São Paulo
 ];
 
+const ACCENT_RGB: [number, number, number] = [0.169, 0.482, 0.706]; // #2B7BB4
+const BG_RGB: [number, number, number] = [0.025, 0.025, 0.025];
+const THETA = 0.3;
+
+function toUnitVec([lat, lon]: [number, number]): [number, number, number] {
+  const latRad = (lat * Math.PI) / 180;
+  const lonRad = (lon * Math.PI) / 180 - Math.PI;
+  const cosLat = Math.cos(latRad);
+  return [-cosLat * Math.cos(lonRad), Math.sin(latRad), cosLat * Math.sin(lonRad)];
+}
+
+const MARKER_DATA = MARKERS.map((m) => ({ ...m, vec: toUnitVec(m.location) }));
+
+function smoothstep(edge0: number, edge1: number, x: number): number {
+  const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+  return t * t * (3 - 2 * t);
+}
+
+/**
+ * Compute per-marker brightness and radius from camera-space depth (nz)
+ * so markers fade gradually into the globe instead of popping at the horizon.
+ */
+function getFadedMarkers(phi: number) {
+  const cosTheta = Math.cos(THETA);
+  const sinTheta = Math.sin(THETA);
+  const cosPhi = Math.cos(phi);
+  const sinPhi = Math.sin(phi);
+
+  return MARKER_DATA.map(({ location, size, vec: [px, py, pz] }) => {
+    const nz = -sinPhi * cosTheta * px + sinTheta * py + cosPhi * cosTheta * pz;
+    const colorFade = smoothstep(0.02, 0.58, nz);
+    const sizeFade = smoothstep(0.01, 0.22, nz);
+    return {
+      location,
+      size: size * sizeFade,
+      color: [
+        BG_RGB[0] + (ACCENT_RGB[0] - BG_RGB[0]) * colorFade,
+        BG_RGB[1] + (ACCENT_RGB[1] - BG_RGB[1]) * colorFade,
+        BG_RGB[2] + (ACCENT_RGB[2] - BG_RGB[2]) * colorFade,
+      ] as [number, number, number],
+    };
+  });
+}
+
 export default function GlobeObject() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const phi = useRef(0);
@@ -32,15 +76,16 @@ export default function GlobeObject() {
       width: width * 2,
       height: width * 2,
       phi: phi.current,
-      theta: 0.3,
+      theta: THETA,
       dark: 1,
       diffuse: 1.4,
       mapSamples: 8000,
       mapBrightness: 2.8,
       baseColor: [0.05, 0.05, 0.05],
-      markerColor: [0.169, 0.482, 0.706], // #2B7BB4 accent
+      markerColor: ACCENT_RGB, // #2B7BB4 accent
       glowColor: [0.15, 0.15, 0.15],
-      markers: MARKERS,
+      markerElevation: 0,
+      markers: getFadedMarkers(phi.current),
     });
 
     // Only render while the globe is on screen.
@@ -63,6 +108,7 @@ export default function GlobeObject() {
         phi: phi.current,
         width: width * 2,
         height: width * 2,
+        markers: getFadedMarkers(phi.current),
       });
       raf = requestAnimationFrame(animate);
     };
