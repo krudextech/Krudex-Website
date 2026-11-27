@@ -58,7 +58,8 @@ function finalizeTexture(canvas: HTMLCanvasElement): THREE.CanvasTexture {
 }
 
 /**
- * Draws a frosted dark-glass UI panel card matching ProductMock.tsx aesthetics.
+ * Draws a crisp, sharp-cornered dark-glass architectural UI plate matching
+ * Krudex's border-krudex-border grid cards and sharp brand geometry.
  */
 function drawGlassCard(
   ctx: CanvasRenderingContext2D,
@@ -79,35 +80,63 @@ function drawGlassCard(
   ctx.roundRect(x, y, w, h, radius);
   ctx.fill();
 
-  // Subtle ambient blue corner wash inside the tile
-  const tintGrad = ctx.createRadialGradient(x + w * 0.5, y + h * 0.15, 0, x + w * 0.5, y + h * 0.25, w * 0.85);
+  // Subtle ambient blue top sheen
+  const tintGrad = ctx.createLinearGradient(x, y, x + w, y + h);
   tintGrad.addColorStop(0, 'rgba(43, 123, 180, 0.16)');
+  tintGrad.addColorStop(0.5, 'rgba(43, 123, 180, 0.04)');
   tintGrad.addColorStop(1, 'rgba(43, 123, 180, 0)');
   ctx.fillStyle = tintGrad;
   ctx.beginPath();
   ctx.roundRect(x, y, w, h, radius);
   ctx.fill();
 
-  // Hairline glass border
+  // Crisp hairline glass border
   ctx.strokeStyle = GLASS_BORDER;
   ctx.lineWidth = borderWidth;
   ctx.beginPath();
   ctx.roundRect(x, y, w, h, radius);
   ctx.stroke();
 
-  // Subtle top inner sheen
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-  ctx.lineWidth = Math.max(2, borderWidth * 0.6);
+  // Precision blue accent tick on top-left & bottom-right corners
+  const tickLen = Math.min(28, w * 0.14);
+  ctx.strokeStyle = 'rgba(79, 163, 220, 0.65)';
+  ctx.lineWidth = Math.max(3, borderWidth);
   ctx.beginPath();
-  ctx.moveTo(x + radius, y + borderWidth);
-  ctx.lineTo(x + w - radius, y + borderWidth);
+  ctx.moveTo(x, y + tickLen);
+  ctx.lineTo(x, y);
+  ctx.lineTo(x + tickLen, y);
+  ctx.moveTo(x + w - tickLen, y + h);
+  ctx.lineTo(x + w, y + h);
+  ctx.lineTo(x + w, y + h - tickLen);
   ctx.stroke();
   ctx.restore();
 }
 
 /**
- * Top surface UI miniature artwork — echoes Krudex's ProductMock UI language
- * cleanly without thick cartoon strokes or blurry glow halos.
+ * Draws a faceted, straight-edged 4-point geometric star (matches sharp brand angles).
+ */
+function drawFacetedStar(
+  ctx: CanvasRenderingContext2D,
+  cx: number,
+  cy: number,
+  outerR: number,
+  innerR: number
+) {
+  ctx.beginPath();
+  for (let i = 0; i < 8; i++) {
+    const angle = (i * Math.PI) / 4 - Math.PI / 2;
+    const rad = i % 2 === 0 ? outerR : innerR;
+    const px = cx + Math.cos(angle) * rad;
+    const py = cy + Math.sin(angle) * rad;
+    if (i === 0) ctx.moveTo(px, py);
+    else ctx.lineTo(px, py);
+  }
+  ctx.closePath();
+}
+
+/**
+ * Top surface UI miniature artwork — sharp architectural framing matching
+ * Krudex's crisp grid layout and sharp geometric brand identity.
  */
 function createTopUiEmblemTexture(kind: PillarKind): THREE.CanvasTexture | null {
   if (typeof document === 'undefined') return null;
@@ -119,226 +148,190 @@ function createTopUiEmblemTexture(kind: PillarKind): THREE.CanvasTexture | null 
   if (!ctx) return null;
 
   ctx.clearRect(0, 0, size, size);
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
+  ctx.lineCap = 'butt';
+  ctx.lineJoin = 'miter';
 
   const cx = size / 2;
   const cy = size / 2;
 
   if (kind === 'web') {
-    // Mini SaaS Dashboard UI card (directly echoes ProductMock SaaS card)
-    const x = 132;
+    // Crisp sharp-edged SaaS Dashboard UI panel
+    const x = 128;
     const y = 172;
-    const w = 760;
+    const w = 768;
     const h = 640;
-    drawGlassCard(ctx, x, y, w, h, 48, 6);
+    drawGlassCard(ctx, x, y, w, h, 8, 6);
 
-    // Window header divider
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
+    // Header separator
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(x + 6, y + 108);
-    ctx.lineTo(x + w - 6, y + 108);
+    ctx.moveTo(x + 6, y + 104);
+    ctx.lineTo(x + w - 6, y + 104);
     ctx.stroke();
 
-    // Traffic window dots + subtle address pill
+    // Sharp square window indicators + clean address bar
     [0, 1, 2].forEach((i) => {
       ctx.fillStyle = i === 0 ? LUMINOUS_BLUE : 'rgba(255, 255, 255, 0.24)';
-      ctx.beginPath();
-      ctx.arc(x + 64 + i * 38, y + 54, 11, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.fillRect(x + 52 + i * 36, y + 43, 18, 18);
     });
 
     ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
     ctx.beginPath();
-    ctx.roundRect(x + 208, y + 32, 340, 44, 14);
+    ctx.roundRect(x + 204, y + 32, 350, 40, 4);
     ctx.fill();
 
-    // Sidebar skeleton rows (left column)
+    // Sidebar skeleton rows (crisp rectangular bars)
     const sideX = x + 46;
-    const sideWidths = [110, 132, 96, 120];
+    const sideWidths = [112, 134, 98, 122];
     sideWidths.forEach((bw, idx) => {
-      ctx.fillStyle = idx === 0 ? 'rgba(79, 163, 220, 0.75)' : 'rgba(255, 255, 255, 0.14)';
-      ctx.beginPath();
-      ctx.roundRect(sideX, y + 162 + idx * 54, bw, 18, 9);
-      ctx.fill();
+      ctx.fillStyle = idx === 0 ? 'rgba(79, 163, 220, 0.8)' : 'rgba(255, 255, 255, 0.14)';
+      ctx.fillRect(sideX, y + 158 + idx * 54, bw, 16);
     });
 
     // Vertical sidebar divider
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.09)';
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(x + 218, y + 114);
-    ctx.lineTo(x + 218, y + h - 18);
+    ctx.moveTo(x + 218, y + 108);
+    ctx.lineTo(x + 218, y + h - 16);
     ctx.stroke();
 
-    // Right panel: mini analytics chart container
+    // Right analytics chart panel (sharp box)
     const chartX = x + 260;
-    const chartY = y + 164;
-    const chartW = 452;
-    const chartH = 412;
+    const chartY = y + 156;
+    const chartW = 456;
+    const chartH = 424;
     ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.09)';
     ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.roundRect(chartX, chartY, chartW, chartH, 28);
-    ctx.fill();
-    ctx.stroke();
+    ctx.fillRect(chartX, chartY, chartW, chartH);
+    ctx.strokeRect(chartX, chartY, chartW, chartH);
 
-    // Ascending analytics bars
+    // Sharp precision ascending bars
     const bars = [0.32, 0.48, 0.40, 0.66, 0.58, 0.84, 0.96];
     const barGap = 18;
     const padX = 40;
     const barW = (chartW - padX * 2 - barGap * (bars.length - 1)) / bars.length;
-    const maxBarH = chartH - 88;
-    const baseLine = chartY + chartH - 36;
+    const maxBarH = chartH - 84;
+    const baseLine = chartY + chartH - 34;
 
     bars.forEach((ratio, idx) => {
       const bh = maxBarH * ratio;
       const bx = chartX + padX + idx * (barW + barGap);
       const by = baseLine - bh;
       ctx.fillStyle = idx === bars.length - 1 ? LUMINOUS_BLUE : idx >= bars.length - 3 ? ACCENT_BLUE : 'rgba(43, 123, 180, 0.36)';
-      ctx.beginPath();
-      ctx.roundRect(bx, by, barW, bh, [10, 10, 4, 4]);
-      ctx.fill();
+      ctx.fillRect(bx, by, barW, bh);
     });
   } else if (kind === 'app') {
-    // Sleek dark mobile device frame (directly echoes ProductMock Mobile card)
+    // Sharp rectangular hardware slab mobile UI
     const pw = 456;
     const ph = 780;
     const px = cx - pw / 2;
     const py = cy - ph / 2;
 
-    drawGlassCard(ctx, px, py, pw, ph, 76, 6);
+    drawGlassCard(ctx, px, py, pw, ph, 18, 6);
 
-    // Dynamic island pill
+    // Sleek minimal speaker notch bar
     ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
-    ctx.beginPath();
-    ctx.roundRect(cx - 72, py + 44, 144, 24, 12);
-    ctx.fill();
+    ctx.fillRect(cx - 64, py + 42, 128, 14);
 
-    // Primary blue app feature card inside screen
-    const cardX = px + 48;
-    const cardY = py + 116;
-    const cardW = pw - 96;
-    const cardH = 228;
+    // Sharp gradient feature card inside screen
+    const cardX = px + 46;
+    const cardY = py + 106;
+    const cardW = pw - 92;
+    const cardH = 232;
     const cardGrad = ctx.createLinearGradient(cardX, cardY, cardX + cardW, cardY + cardH);
     cardGrad.addColorStop(0, LUMINOUS_BLUE);
     cardGrad.addColorStop(1, '#1B4E73');
     ctx.fillStyle = cardGrad;
     ctx.beginPath();
-    ctx.roundRect(cardX, cardY, cardW, cardH, 36);
+    ctx.roundRect(cardX, cardY, cardW, cardH, 6);
     ctx.fill();
 
-    // Shimmer bars inside feature card
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.82)';
-    ctx.beginPath();
-    ctx.roundRect(cardX + 38, cardY + 54, 148, 22, 11);
-    ctx.fill();
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.40)';
-    ctx.beginPath();
-    ctx.roundRect(cardX + 38, cardY + 98, 212, 16, 8);
-    ctx.fill();
-    // Mini progress track
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.22)';
-    ctx.beginPath();
-    ctx.roundRect(cardX + 38, cardY + 156, cardW - 76, 14, 7);
-    ctx.fill();
+    // Crisp rectangular text & progress bars
     ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-    ctx.beginPath();
-    ctx.roundRect(cardX + 38, cardY + 156, (cardW - 76) * 0.66, 14, 7);
-    ctx.fill();
+    ctx.fillRect(cardX + 36, cardY + 52, 148, 20);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.40)';
+    ctx.fillRect(cardX + 36, cardY + 96, 212, 14);
 
-    // Clean UI list rows below card
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.22)';
+    ctx.fillRect(cardX + 36, cardY + 158, cardW - 72, 12);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.88)';
+    ctx.fillRect(cardX + 36, cardY + 158, (cardW - 72) * 0.66, 12);
+
+    // Sharp UI list rows below card
     [0, 1].forEach((i) => {
       const ry = cardY + cardH + 34 + i * 118;
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
       ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.roundRect(cardX, ry, cardW, 96, 26);
-      ctx.fill();
-      ctx.stroke();
+      ctx.fillRect(cardX, ry, cardW, 96);
+      ctx.strokeRect(cardX, ry, cardW, 96);
 
       ctx.fillStyle = 'rgba(255, 255, 255, 0.14)';
-      ctx.beginPath();
-      ctx.roundRect(cardX + 24, ry + 24, 48, 48, 14);
-      ctx.fill();
+      ctx.fillRect(cardX + 24, ry + 24, 48, 48);
 
       ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
-      ctx.beginPath();
-      ctx.roundRect(cardX + 94, ry + 30, 150 - i * 32, 14, 7);
-      ctx.fill();
+      ctx.fillRect(cardX + 94, ry + 30, 150 - i * 32, 14);
       ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
-      ctx.beginPath();
-      ctx.roundRect(cardX + 94, ry + 56, 98, 12, 6);
-      ctx.fill();
+      ctx.fillRect(cardX + 94, ry + 56, 98, 12);
     });
 
-    // Tab indicator dots at bottom
+    // Crisp rectangular tab indicators at bottom
     [0, 1, 2, 3].forEach((i) => {
       ctx.fillStyle = i === 0 ? LUMINOUS_BLUE : 'rgba(255, 255, 255, 0.24)';
-      ctx.beginPath();
-      ctx.arc(cx - 84 + i * 56, py + ph - 52, 10, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.fillRect(cx - 94 + i * 56, py + ph - 58, 22, 12);
     });
   } else {
-    // AI core tile — frosted rounded badge + architectural spark + orbital ticks
+    // AI core plate — sharp architectural square badge + faceted neural diamond star
     const tileSize = 680;
     const tx = cx - tileSize / 2;
     const ty = cy - tileSize / 2;
-    drawGlassCard(ctx, tx, ty, tileSize, tileSize, 152, 7);
+    drawGlassCard(ctx, tx, ty, tileSize, tileSize, 12, 7);
 
-    // Subtle concentric hairline orbits
-    ctx.strokeStyle = 'rgba(79, 163, 220, 0.36)';
+    // Rotated architectural diamond frame inside tile
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(Math.PI / 4);
+    ctx.strokeStyle = 'rgba(79, 163, 220, 0.42)';
     ctx.lineWidth = 5;
-    ctx.beginPath();
-    ctx.arc(cx, cy, 226, 0, Math.PI * 2);
-    ctx.stroke();
+    ctx.strokeRect(-184, -184, 368, 368);
 
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
     ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.arc(cx, cy, 158, 0, Math.PI * 2);
-    ctx.stroke();
+    ctx.strokeRect(-128, -128, 256, 256);
 
-    // 4 crisp diagonal terminal nodes on outer orbit
-    [0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2].forEach((ang, idx) => {
-      const a = ang + Math.PI / 4;
-      const nx = cx + Math.cos(a) * 226;
-      const ny = cy + Math.sin(a) * 226;
-      ctx.fillStyle = idx % 2 === 0 ? LUMINOUS_BLUE : SILVER;
-      ctx.beginPath();
-      ctx.arc(nx, ny, 20, 0, Math.PI * 2);
-      ctx.fill();
+    // 4 crisp square nodes at inner corners
+    const corners = [-184, 184];
+    corners.forEach((kx, ix) => {
+      corners.forEach((ky, iy) => {
+        ctx.fillStyle = (ix + iy) % 2 === 0 ? LUMINOUS_BLUE : SILVER;
+        ctx.fillRect(kx - 16, ky - 16, 32, 32);
+      });
     });
+    ctx.restore();
 
-    // Crisp geometric 4-point spark star
-    const sr = 128;
-    const ir = 26;
+    // Sharp faceted 4-point geometric star (straight polygonal edges, zero soft curves)
     ctx.fillStyle = SILVER_BRIGHT;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy - sr);
-    ctx.quadraticCurveTo(cx + ir, cy - ir, cx + sr, cy);
-    ctx.quadraticCurveTo(cx + ir, cy + ir, cx, cy + sr);
-    ctx.quadraticCurveTo(cx - ir, cy + ir, cx - sr, cy);
-    ctx.quadraticCurveTo(cx - ir, cy - ir, cx, cy - sr);
-    ctx.closePath();
+    drawFacetedStar(ctx, cx, cy, 142, 36);
     ctx.fill();
 
-    // Blue precision core dot
+    // Sharp rotated blue diamond core
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(Math.PI / 4);
     ctx.fillStyle = ACCENT_BLUE;
-    ctx.beginPath();
-    ctx.arc(cx, cy, 26, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.fillRect(-18, -18, 36, 36);
+    ctx.restore();
   }
 
   return finalizeTexture(canvas);
 }
 
 /**
- * Side favicon logo strip — unified dark-glass squircle tiles across all three
- * pillars with matched silver/cerulean lineweight so icons harmonize with UI cards.
+ * Side favicon logo strip — sharp architectural glass badges matching
+ * the site's clean borders, crisp angles, and minimalist monochrome + blue look.
  */
 function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
   if (typeof document === 'undefined') return null;
@@ -351,8 +344,8 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
   if (!ctx) return null;
 
   ctx.clearRect(0, 0, w, h);
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
+  ctx.lineCap = 'butt';
+  ctx.lineJoin = 'miter';
 
   const tileSize = 252;
   const gap = 76;
@@ -360,7 +353,7 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
   const leftX = (w - totalW) / 2;
   const rightX = leftX + tileSize + gap;
   const topY = (h - tileSize) / 2;
-  const r = 56;
+  const r = 8; // Sharp architectural frame corners matching Krudex grid cards
 
   drawGlassCard(ctx, leftX, topY, tileSize, tileSize, r, 4.5);
   drawGlassCard(ctx, rightX, topY, tileSize, tileSize, r, 4.5);
@@ -371,9 +364,9 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
   const rcy = topY + tileSize / 2;
 
   if (kind === 'web') {
-    // Tile 1: Clean geometric React orbital rings (no fuzzy blur)
+    // Tile 1: Clean geometric React orbital rings with crisp diamond nucleus
     ctx.strokeStyle = LUMINOUS_BLUE;
-    ctx.lineWidth = 8;
+    ctx.lineWidth = 7.5;
     [0, Math.PI / 3, -Math.PI / 3].forEach((rot) => {
       ctx.save();
       ctx.translate(lcx, lcy);
@@ -383,14 +376,16 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
       ctx.stroke();
       ctx.restore();
     });
+    ctx.save();
+    ctx.translate(lcx, lcy);
+    ctx.rotate(Math.PI / 4);
     ctx.fillStyle = SILVER_BRIGHT;
-    ctx.beginPath();
-    ctx.arc(lcx, lcy, 13, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.fillRect(-10, -10, 20, 20);
+    ctx.restore();
 
-    // Tile 2: Refined Next.js N circle mark in balanced silver + cerulean accent
+    // Tile 2: Sharp architectural Next.js N frame (crisp miter corners, outer octagon/square reticle)
     ctx.strokeStyle = 'rgba(220, 227, 236, 0.72)';
-    ctx.lineWidth = 7.5;
+    ctx.lineWidth = 7;
     ctx.beginPath();
     ctx.arc(rcx, rcy, 66, 0, Math.PI * 2);
     ctx.stroke();
@@ -407,10 +402,10 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
     ctx.lineWidth = 10.5;
     ctx.beginPath();
     ctx.moveTo(rcx + 26, rcy - 30);
-    ctx.lineTo(rcx + 26, rcy + 8);
+    ctx.lineTo(rcx + 26, rcy + 10);
     ctx.stroke();
   } else if (kind === 'app') {
-    // Tile 1: Matte satin-silver Apple mark (tames white glare inside frosted tile)
+    // Tile 1: Matte satin-silver Apple mark inside sharp architectural tile
     ctx.save();
     ctx.translate(lcx - 62, lcy - 68);
     ctx.scale(5.2, 5.2);
@@ -421,7 +416,7 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
     ctx.fill(appleBody);
     ctx.restore();
 
-    // Tile 2: Clean geometric Android dome emblem matched in weight
+    // Tile 2: Geometric Android emblem with crisp visor eyes
     const ay = rcy + 40;
     ctx.fillStyle = LUMINOUS_BLUE;
     ctx.beginPath();
@@ -429,9 +424,9 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
     ctx.closePath();
     ctx.fill();
 
-    // Antennae
+    // Sharp miter-tipped antennae
     ctx.strokeStyle = LUMINOUS_BLUE;
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 9.5;
     ctx.beginPath();
     ctx.moveTo(rcx - 32, ay - 52);
     ctx.lineTo(rcx - 50, ay - 86);
@@ -439,39 +434,31 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
     ctx.lineTo(rcx + 50, ay - 86);
     ctx.stroke();
 
-    // Cutout eyes matching frosted tile surface
+    // Sharp rectangular eye cutouts matching frosted surface
     ctx.fillStyle = '#0F131B';
-    ctx.beginPath();
-    ctx.arc(rcx - 28, ay - 26, 8, 0, Math.PI * 2);
-    ctx.arc(rcx + 28, ay - 26, 8, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.fillRect(rcx - 36, ay - 33, 15, 13);
+    ctx.fillRect(rcx + 21, ay - 33, 15, 13);
   } else {
-    // Tile 1: Clean 4-point AI spark emblem
-    const sr = 68;
-    const ir = 15;
+    // Tile 1: Sharp faceted 4-point AI star emblem + diamond center
     ctx.fillStyle = SILVER_BRIGHT;
-    ctx.beginPath();
-    ctx.moveTo(lcx, lcy - sr);
-    ctx.quadraticCurveTo(lcx + ir, lcy - ir, lcx + sr, lcy);
-    ctx.quadraticCurveTo(lcx + ir, lcy + ir, lcx, lcy + sr);
-    ctx.quadraticCurveTo(lcx - ir, lcy + ir, lcx - sr, lcy);
-    ctx.quadraticCurveTo(lcx - ir, lcy - ir, lcx, lcy - sr);
-    ctx.closePath();
+    drawFacetedStar(ctx, lcx, lcy, 74, 19);
     ctx.fill();
 
+    ctx.save();
+    ctx.translate(lcx, lcy);
+    ctx.rotate(Math.PI / 4);
     ctx.fillStyle = ACCENT_BLUE;
-    ctx.beginPath();
-    ctx.arc(lcx, lcy, 15, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.fillRect(-11, -11, 22, 22);
+    ctx.restore();
 
-    // Tile 2: Bold symmetrical 2-3-2 Neural Tensor Crest (crisp even on smaller Pillar 3)
+    // Tile 2: Sharp Neural Tensor Grid (diamond/square nodes + straight precision edges)
     const layers = [
       { x: rcx - 56, ys: [rcy - 34, rcy + 34] },
       { x: rcx, ys: [rcy - 54, rcy, rcy + 54] },
       { x: rcx + 56, ys: [rcy - 34, rcy + 34] },
     ];
-    ctx.strokeStyle = 'rgba(79, 163, 220, 0.52)';
-    ctx.lineWidth = 5;
+    ctx.strokeStyle = 'rgba(79, 163, 220, 0.55)';
+    ctx.lineWidth = 4.5;
     for (let l = 0; l < layers.length - 1; l++) {
       for (const y1 of layers[l].ys) {
         for (const y2 of layers[l + 1].ys) {
@@ -484,10 +471,13 @@ function createSideLogoTexture(kind: PillarKind): THREE.CanvasTexture | null {
     }
     layers.forEach((layer, li) => {
       layer.ys.forEach((ny, ni) => {
+        const s = li === 1 && ni === 1 ? 22 : 18;
+        ctx.save();
+        ctx.translate(layer.x, ny);
+        ctx.rotate(Math.PI / 4);
         ctx.fillStyle = li === 2 || (li === 1 && ni === 1) ? SILVER_BRIGHT : LUMINOUS_BLUE;
-        ctx.beginPath();
-        ctx.arc(layer.x, ny, li === 1 && ni === 1 ? 14 : 12, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.fillRect(-s / 2, -s / 2, s, s);
+        ctx.restore();
       });
     });
   }
