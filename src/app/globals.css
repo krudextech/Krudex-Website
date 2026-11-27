@@ -16,7 +16,7 @@
   --color-krudex-accent-hover: #236899; /* 5.98:1 with #FFFFFF text */
   --color-krudex-accent-fg: #FFFFFF;
   --font-sans: var(--font-sans-primary);
-  --font-serif: var(--font-serif-primary);
+  --font-display: var(--font-display-primary);
 }
 
 :root {
@@ -158,5 +158,5 @@ select:focus-visible {
   color: transparent;
   -webkit-text-stroke: 1px rgba(250, 250, 250, 0.22);
   letter-spacing: -0.04em;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
 }

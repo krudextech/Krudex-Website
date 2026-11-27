@@ -27,7 +27,7 @@ const CTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-normal mb-6 leading-[1.1] tracking-tight"
+          className="font-display text-4xl md:text-5xl lg:text-6xl text-white font-medium mb-6 leading-[1.1] tracking-tight"
         >
           Let&apos;s build something<br />extraordinary together.
         </motion.h2>

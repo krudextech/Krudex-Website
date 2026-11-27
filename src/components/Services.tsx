@@ -33,7 +33,7 @@ const Services = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="max-w-2xl mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-6xl text-white font-normal mb-6 leading-[1.1] tracking-tight">
+          <h2 className="font-display text-4xl md:text-6xl text-white font-medium mb-6 leading-[1.1] tracking-tight">
             Your SaaS <br /> and Growth Partner.
           </h2>
           <p className="text-krudex-muted text-base leading-relaxed">
@@ -58,8 +58,8 @@ const Services = () => {
                 className={`bg-krudex-black ${index % 2 ? 'lg:order-2' : ''}`}
               />
               <div className={`bg-krudex-black p-8 md:p-12 flex flex-col justify-center min-w-0 ${index % 2 ? 'lg:order-1' : ''}`}>
-                <div className="text-krudex-muted font-mono text-sm mb-6">{svc.num}</div>
-                <h3 className="font-serif text-3xl md:text-4xl text-white font-normal mb-4 leading-[1.1] tracking-tight">{svc.title}</h3>
+                <div className="text-krudex-muted font-display font-medium tabular-nums text-sm mb-6">{svc.num}</div>
+                <h3 className="font-display text-3xl md:text-4xl text-white font-medium mb-4 leading-[1.1] tracking-tight">{svc.title}</h3>
                 <p className="text-krudex-muted text-sm md:text-base leading-relaxed mb-8">{svc.summary}</p>
                 <ul className="flex flex-col gap-3 mb-10">
                   {svc.highlights.map((h) => (

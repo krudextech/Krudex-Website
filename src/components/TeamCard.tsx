@@ -177,7 +177,7 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
                 </span>
               </div>
               <span
-                className="text-xs font-mono opacity-30"
+                className="text-xs font-display font-medium tabular-nums opacity-30"
                 style={{ color: member.accent }}
               >
                 {String(index + 1).padStart(2, "0")}
@@ -199,7 +199,7 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
                   }}
                 />
                 <div
-                  className="relative w-16 h-16 rounded-xl flex items-center justify-center font-serif text-xl font-bold border"
+                  className="relative w-16 h-16 rounded-xl flex items-center justify-center font-display text-xl font-bold border"
                   style={{
                     background: `linear-gradient(135deg, ${member.accent}15, ${member.accent}05)`,
                     borderColor: `${member.accent}30`,

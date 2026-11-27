@@ -45,7 +45,7 @@ const StatItem = ({ value, suffix, label, delay }: StatItemProps) => {
       transition={{ duration: 0.5, delay }}
       className="text-center"
     >
-      <div className="text-white font-serif text-4xl md:text-6xl tabular-nums font-normal mb-2 tracking-tight">
+      <div className="text-white font-display text-4xl md:text-6xl tabular-nums font-medium mb-2 tracking-tight">
         {count}{suffix}
       </div>
       <div className="text-krudex-muted text-xs uppercase tracking-[0.15em] md:tracking-[0.2em]">{label}</div>

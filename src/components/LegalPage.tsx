@@ -30,7 +30,7 @@ export default function LegalPage({
             <div className="w-1.5 h-1.5 rounded-full bg-krudex-accent" />
             <span className="text-xs uppercase tracking-[0.2em] text-krudex-accent font-semibold">{eyebrow}</span>
           </div>
-          <h1 className="font-serif text-5xl md:text-6xl text-white leading-[1.05] tracking-tight mb-6">{title}</h1>
+          <h1 className="font-display text-5xl md:text-6xl font-medium text-white leading-[1.05] tracking-tight mb-6">{title}</h1>
           <p className="text-krudex-muted text-sm mb-12">Last updated: {updated}</p>
           <div className="text-white/75 text-base leading-relaxed mb-16 [&_a]:text-white [&_a]:underline [&_a]:underline-offset-4">
             {intro}

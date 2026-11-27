@@ -49,7 +49,7 @@ export default function ProgramExplorer() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="max-w-2xl mb-12">
-          <h2 id="programs-title" className="font-serif text-4xl md:text-5xl text-white font-bold mb-6">
+          <h2 id="programs-title" className="font-display text-4xl md:text-5xl text-white font-bold mb-6">
             Three programs. One way of teaching.
           </h2>
           <p className="text-krudex-muted text-base leading-relaxed">
@@ -78,9 +78,8 @@ export default function ProgramExplorer() {
                     if (typeof window !== 'undefined') window.history.replaceState(null, '', '#program-' + p.id);
                   }}
                   onKeyDown={(e) => onKeyDown(e, i)}
-                  className={`scroll-mt-32 inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 text-sm font-medium transition-[background-color,color] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-krudex-accent ${
-                    selected ? 'bg-krudex-accent text-krudex-accent-fg' : 'text-white/70 hover:text-white'
-                  }`}
+                  className={`scroll-mt-32 inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 text-sm font-medium transition-[background-color,color] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-krudex-accent ${selected ? 'bg-krudex-accent text-krudex-accent-fg' : 'text-white/70 hover:text-white'
+                    }`}
                 >
                   <Icon aria-hidden="true" className="h-4 w-4" />
                   {/* Phones show "Java" / "Python" so all three tabs fit. */}
@@ -112,10 +111,10 @@ export default function ProgramExplorer() {
                 <p className="mt-3 text-white/80 text-lg leading-snug">{p.tagline}</p>
                 <p className="mt-5 text-krudex-muted text-sm leading-relaxed">{p.description}</p>
 
-                <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.15em] text-krudex-muted">Who it suits</p>
+                <p className="mt-8 font-sans font-semibold text-[11px] uppercase tracking-[0.15em] text-krudex-muted">Who it suits</p>
                 <p className="mt-2 text-white/80 text-sm leading-relaxed">{p.forWho}</p>
 
-                <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.15em] text-krudex-muted">Tools you will use</p>
+                <p className="mt-8 font-sans font-semibold text-[11px] uppercase tracking-[0.15em] text-krudex-muted">Tools you will use</p>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {p.stack.map((tool) => (
                     <li key={tool} className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/75">
@@ -134,11 +133,11 @@ export default function ProgramExplorer() {
               </div>
 
               <div className="lg:col-span-7 min-w-0">
-                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-krudex-muted mb-4">Curriculum</p>
+                <p className="font-sans font-semibold text-[11px] uppercase tracking-[0.15em] text-krudex-muted mb-4">Curriculum</p>
                 <ol className="flex flex-col gap-2">
                   {p.modules.map((m, i) => (
                     <li key={m.title} className="flex gap-5 border border-krudex-border bg-krudex-card/40 p-5">
-                      <span className="font-mono text-sm text-krudex-muted pt-0.5">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="font-display font-medium tabular-nums text-sm text-krudex-muted pt-0.5">{String(i + 1).padStart(2, '0')}</span>
                       <div className="min-w-0">
                         <h4 className="text-white font-medium">{m.title}</h4>
                         <p className="mt-1 text-krudex-muted text-sm leading-relaxed">{m.topics}</p>

@@ -9,17 +9,17 @@ const ServicesCTA = () => {
   return (
     <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32 bg-krudex-black border-t border-krudex-border">
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
+          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
         >
           Ready to scope your <br /> project?
         </motion.h2>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -35,8 +35,8 @@ const ServicesCTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <MagneticButton 
-            href="/contact" 
+          <MagneticButton
+            href="/contact"
             className="group flex items-center gap-2 bg-krudex-accent text-krudex-accent-fg px-8 py-4 rounded-full font-semibold text-sm hover:bg-krudex-accent-hover transition-colors"
           >
             Contact Us

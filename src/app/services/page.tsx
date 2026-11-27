@@ -33,7 +33,7 @@ export default function ServicesPage() {
                 SERVICES
               </span>
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl text-white font-bold mb-6 leading-[1.1] tracking-tight">
+            <h1 className="font-display text-5xl md:text-7xl text-white font-bold mb-6 leading-[1.1] tracking-tight">
               What Krudex <br />
               <span className="text-white/45">builds and grows for you.</span>
             </h1>
@@ -50,7 +50,7 @@ export default function ServicesPage() {
                   href={`#${service.id}`}
                   className="inline-flex items-center gap-2 border border-krudex-border bg-krudex-card/60 px-4 py-2 rounded-full text-sm text-krudex-text hover:border-white/40 hover:text-white active:scale-[0.97] transition-[border-color,color,transform] duration-150 ease-out"
                 >
-                  <span className="font-mono text-xs text-krudex-muted">{service.num}</span>
+                  <span className="font-display font-medium tabular-nums text-xs text-krudex-muted">{service.num}</span>
                   {service.title}
                 </a>
               ))}
@@ -72,16 +72,16 @@ export default function ServicesPage() {
                 {/* Text */}
                 <div className="lg:col-span-7 flex flex-col">
                   <div className="flex items-center gap-3 mb-5">
-                    <span className="font-mono text-sm text-krudex-muted">{service.num}</span>
+                    <span className="font-display font-medium tabular-nums text-sm text-krudex-muted">{service.num}</span>
                     <span className="h-px w-8 bg-krudex-border" />
                   </div>
-                  <h2 className="font-serif text-3xl md:text-4xl text-white font-bold mb-3 tracking-tight">
+                  <h2 className="font-display text-3xl md:text-4xl text-white font-bold mb-3 tracking-tight">
                     {service.title}
                   </h2>
                   <p className="text-white/70 font-medium mb-5">{service.tagline}</p>
                   <p className="text-krudex-muted text-base leading-relaxed max-w-2xl">{service.description}</p>
 
-                  <h3 className="mt-8 mb-4 text-xs text-krudex-muted font-mono uppercase tracking-[0.2em]">
+                  <h3 className="mt-8 mb-4 text-xs text-krudex-muted font-sans font-semibold uppercase tracking-[0.2em]">
                     Capabilities
                   </h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
@@ -95,7 +95,7 @@ export default function ServicesPage() {
 
                   <div className="mt-8 lg:mt-auto lg:pt-8">
                     <div className="border-l-2 border-krudex-accent pl-5 py-3 bg-gradient-to-r from-white/5 to-transparent">
-                      <div className="text-xs text-krudex-muted font-mono uppercase tracking-[0.15em] mb-1.5">
+                      <div className="text-xs text-krudex-muted font-sans font-semibold uppercase tracking-[0.15em] mb-1.5">
                         Outcome
                       </div>
                       <p className="text-white font-medium text-sm">{service.outcome}</p>

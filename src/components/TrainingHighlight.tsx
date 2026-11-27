@@ -22,7 +22,7 @@ const TrainingHighlight = () => {
               FOR STUDENTS
             </span>
           </div>
-          <h2 className="font-serif text-4xl md:text-6xl text-white font-normal leading-[1.1] tracking-tight">
+          <h2 className="font-display text-4xl md:text-6xl text-white font-medium leading-[1.1] tracking-tight">
             Student training, <br /> led by industry experts.
           </h2>
         </motion.div>

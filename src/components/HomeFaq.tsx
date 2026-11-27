@@ -25,7 +25,7 @@ const HomeFaq = () => {
             <div className="w-1.5 h-1.5 rounded-full bg-white/60"></div>
             <span className="text-xs text-krudex-muted tracking-wide">FAQ</span>
           </div>
-          <h2 className="font-serif text-4xl md:text-6xl text-white font-normal mb-6 leading-[1.1] tracking-tight">
+          <h2 className="font-display text-4xl md:text-6xl text-white font-medium mb-6 leading-[1.1] tracking-tight">
             Questions, <br /> answered.
           </h2>
           <p className="text-krudex-muted text-base leading-relaxed mb-8">

@@ -82,7 +82,7 @@ export default function TrainingPathFinder() {
             <Compass aria-hidden="true" className="h-3.5 w-3.5 text-krudex-accent" />
             <span className="text-xs uppercase tracking-[0.2em] text-krudex-accent font-semibold">Path finder</span>
           </div>
-          <h2 id="path-finder-title" className="font-serif text-4xl md:text-5xl text-white font-bold mb-6">
+          <h2 id="path-finder-title" className="font-display text-4xl md:text-5xl text-white font-bold mb-6">
             Find your learning path.
           </h2>
           <p className="text-krudex-muted text-base leading-relaxed">
@@ -126,13 +126,13 @@ export default function TrainingPathFinder() {
           <div aria-live="polite">
             {result && (
               <div className="border border-krudex-border bg-krudex-card/50 p-6 md:p-8">
-                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-krudex-accent">Suggested program · {result.track}</p>
+                <p className="font-sans font-semibold text-[11px] uppercase tracking-[0.15em] text-krudex-accent">Suggested program · {result.track}</p>
                 <h3 className="mt-3 text-white text-xl font-bold">{result.headline}</h3>
                 <p className="mt-3 text-krudex-muted text-sm leading-relaxed">{result.why}</p>
                 <ol className="mt-5 space-y-2">
                   {result.steps.map((s, i) => (
                     <li key={s} className="flex items-start gap-3 text-sm text-white/85">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/25 font-mono text-xs text-white">{i + 1}</span>
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/25 font-display font-medium tabular-nums text-xs text-white">{i + 1}</span>
                       {s}
                     </li>
                   ))}

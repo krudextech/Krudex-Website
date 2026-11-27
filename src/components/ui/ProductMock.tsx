@@ -217,9 +217,8 @@ function Training() {
         {modules.map((m, i) => (
           <li key={m} className="flex items-center gap-3 rounded-xl bg-white/[0.04] px-3 py-2">
             <span
-              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${
-                i < 2 ? 'bg-krudex-accent text-krudex-accent-fg' : 'border border-white/20 text-white/50'
-              }`}
+              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${i < 2 ? 'bg-krudex-accent text-krudex-accent-fg' : 'border border-white/20 text-white/50'
+                }`}
             >
               {i < 2 ? '✓' : i + 1}
             </span>
@@ -280,7 +279,7 @@ export default function ProductMock({
       {tags.length > 0 && (
         <div className="absolute inset-x-4 bottom-4 flex flex-wrap gap-2">
           {tags.map((t) => (
-            <span key={t} className="border border-white/15 bg-krudex-black/60 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-white/80">
+            <span key={t} className="border border-white/15 bg-krudex-black/60 px-3 py-1.5 font-sans font-medium text-[11px] uppercase tracking-[0.12em] text-white/80">
               {t}
             </span>
           ))}

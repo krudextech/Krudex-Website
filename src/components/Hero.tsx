@@ -75,7 +75,7 @@ const Hero = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-krudex-accent opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-krudex-accent"></span>
           </span>
-          <span className="text-[10.5px] sm:text-xs font-mono text-krudex-muted group-hover:text-white sm:tracking-wide min-[360px]:whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap min-[1920px]:text-sm transition-colors">
+          <span className="text-[10.5px] sm:text-xs font-sans font-medium text-krudex-muted group-hover:text-white sm:tracking-wide min-[360px]:whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap min-[1920px]:text-sm transition-colors">
             SaaS · Digital Marketing · Student Training
           </span>
         </motion.div>
@@ -85,7 +85,7 @@ const Hero = () => {
           variants={titleVariants}
           initial="hidden"
           animate="visible"
-          className="font-serif text-[2.25rem] md:text-[3.5rem] lg:text-[3.75rem] xl:text-[4.25rem] font-normal leading-[1.08] tracking-tight text-white mb-5 md:mb-7"
+          className="font-display text-[2.25rem] md:text-[3.5rem] lg:text-[3.75rem] xl:text-[4.25rem] font-medium leading-[1.08] tracking-tight text-white mb-5 md:mb-7"
         >
           {/* Words are separate animated spans spaced by margin, so screen readers
               and search engines get the sentence from this copy instead. */}

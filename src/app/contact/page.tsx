@@ -186,7 +186,7 @@ export default function ContactPage() {
                   CONTACT
                 </span>
               </div>
-              <h1 className="font-serif text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-8">
+              <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-8">
                 <span className="text-white">Let&apos;s build</span><br />
                 <span className="text-white/45">something</span><br />
                 <span className="text-white/45">serious.</span>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                   : ['You send the brief', 'We reply within 24 hours', 'Free 30-minute scoping call']
                 ).map((step, i) => (
                   <li key={step} className="flex items-center gap-4 text-white/80">
-                    <span className="w-7 h-7 rounded-full border border-white/25 flex items-center justify-center font-mono text-xs text-white flex-shrink-0">
+                    <span className="w-7 h-7 rounded-full border border-white/25 flex items-center justify-center font-display font-medium tabular-nums text-xs text-white flex-shrink-0">
                       {i + 1}
                     </span>
                     {step}
@@ -227,7 +227,7 @@ export default function ContactPage() {
                     <div className="w-12 h-12 rounded-full bg-krudex-accent text-krudex-accent-fg flex items-center justify-center mb-8">
                       <Check className="w-6 h-6" strokeWidth={2.5} />
                     </div>
-                    <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">Inquiry received.</h2>
+                    <h2 className="font-display text-3xl md:text-4xl font-medium text-white mb-4">Inquiry received.</h2>
                     <p className="text-krudex-muted text-base leading-relaxed max-w-md mb-10">
                       Thanks for reaching out. The right person on our team will review your message and reply within one business day.
                     </p>
@@ -444,7 +444,7 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5 text-white" aria-hidden="true" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-mono mb-1">EMAIL</span>
+                  <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-sans font-semibold mb-1">EMAIL</span>
                   <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center min-h-11 text-white font-medium text-sm underline-offset-4 hover:underline [overflow-wrap:anywhere]">{CONTACT_EMAIL}</a>
                 </div>
               </div>
@@ -455,7 +455,7 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5 text-white" aria-hidden="true" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-mono mb-1">PHONE</span>
+                  <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-sans font-semibold mb-1">PHONE</span>
                   <div className="flex flex-wrap gap-x-4 gap-y-1">
                     <a href={`tel:${PHONES[0]}`} className="inline-flex items-center min-h-11 text-white font-medium text-sm underline-offset-4 hover:underline">{PHONE_DISPLAY}</a>
                   </div>
@@ -468,7 +468,7 @@ export default function ContactPage() {
                   <MessageCircle className="w-5 h-5 text-white" aria-hidden="true" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-mono mb-1">WHATSAPP</span>
+                  <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-sans font-semibold mb-1">WHATSAPP</span>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-11 text-white font-medium text-sm underline-offset-4 hover:underline">
                     Chat on WhatsApp
                   </a>
@@ -481,14 +481,14 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5 text-white" aria-hidden="true" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-mono mb-1">OFFICE</span>
+                  <span className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-sans font-semibold mb-1">OFFICE</span>
                   <span className="text-white font-medium text-sm">Hyderabad, Telangana, India</span>
                 </div>
               </div>
 
               {/* SLA Block */}
               <div className="bg-krudex-card/30 border border-krudex-border p-8 mt-4">
-                <div className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-mono mb-4">
+                <div className="text-xs uppercase tracking-[0.2em] text-krudex-muted font-sans font-semibold mb-4">
                   RESPONSE SLA
                 </div>
                 <h3 className="text-white font-bold text-lg mb-3">Within 24 hours</h3>

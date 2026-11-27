@@ -41,7 +41,7 @@ const Pillars = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="font-serif text-4xl md:text-6xl text-white font-normal mb-16 leading-[1.1] tracking-tight"
+          className="font-display text-4xl md:text-6xl text-white font-medium mb-16 leading-[1.1] tracking-tight"
         >
           One company. <br /> Three ways to work with us.
         </motion.h2>
@@ -60,7 +60,7 @@ const Pillars = () => {
                 href={pillar.href}
                 className="group flex flex-col h-full p-8 md:p-10 transition-colors duration-200 hover:bg-[#111111] active:bg-[#111111]"
               >
-                <div className="text-krudex-accent font-mono text-xs uppercase tracking-[0.2em] mb-6">{pillar.label}</div>
+                <div className="text-krudex-accent font-sans font-semibold text-xs uppercase tracking-[0.2em] mb-6">{pillar.label}</div>
                 <h3 className="text-white font-medium text-xl mb-2">{pillar.title}</h3>
                 <p className="text-white/60 text-sm mb-6">{pillar.audience}</p>
                 <p className="text-krudex-muted text-sm leading-relaxed mb-10">{pillar.desc}</p>

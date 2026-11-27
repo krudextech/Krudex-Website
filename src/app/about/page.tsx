@@ -74,7 +74,7 @@ export default function AboutPage() {
                   ABOUT US
                 </span>
               </div>
-              <h1 className="font-serif text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
+              <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
                 <span className="text-white">Built to last.</span><br />
                 <span className="text-white/45">Not just to<br />ship.</span>
               </h1>
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 VISION &amp; MISSION
               </span>
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl text-white font-bold max-w-3xl leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl text-white font-bold max-w-3xl leading-tight">
               Why Krudex exists, and how we get there.
             </h2>
           </motion.div>
@@ -122,8 +122,8 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="bg-krudex-black p-10 lg:p-14"
             >
-              <div className="text-krudex-accent font-mono text-sm mb-6">OUR VISION</div>
-              <p className="font-serif text-2xl md:text-3xl text-white leading-snug">
+              <div className="text-krudex-accent font-sans font-semibold tracking-[0.15em] text-xs mb-6">OUR VISION</div>
+              <p className="font-display text-2xl md:text-3xl font-medium text-white leading-snug">
                 {vision}
               </p>
             </motion.div>
@@ -134,8 +134,8 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-krudex-black p-10 lg:p-14"
             >
-              <div className="text-krudex-accent font-mono text-sm mb-6">OUR MISSION</div>
-              <p className="font-serif text-2xl md:text-3xl text-white leading-snug">
+              <div className="text-krudex-accent font-sans font-semibold tracking-[0.15em] text-xs mb-6">OUR MISSION</div>
+              <p className="font-display text-2xl md:text-3xl font-medium text-white leading-snug">
                 {mission}
               </p>
             </motion.div>
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-krudex-black p-10"
               >
-                <div className="text-krudex-muted font-mono text-sm mb-6">{pillar.label}</div>
+                <div className="text-krudex-muted font-display font-medium tabular-nums tracking-[0.1em] text-xs mb-6">{pillar.label}</div>
                 <h3 className="text-white font-bold text-xl mb-4">{pillar.title}</h3>
                 <p className="text-krudex-muted text-sm leading-relaxed">{pillar.text}</p>
               </motion.div>
@@ -182,7 +182,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-serif text-5xl md:text-6xl text-white font-bold mb-6"
+              className="font-display text-5xl md:text-6xl text-white font-bold mb-6"
             >
               How we operate.
             </motion.h2>
@@ -208,7 +208,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 className="bg-krudex-card/40 border border-krudex-border p-10 lg:p-12"
               >
-                <div className="text-krudex-muted font-mono text-sm mb-6">{principle.num}</div>
+                <div className="text-krudex-muted font-display font-medium tabular-nums text-sm mb-6">{principle.num}</div>
                 <h3 className="text-white font-bold text-xl mb-4">{principle.title}</h3>
                 <p className="text-krudex-muted text-sm leading-relaxed">
                   {principle.text}
@@ -227,7 +227,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
           >
             Want to work together?
           </motion.h2>

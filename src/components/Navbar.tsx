@@ -160,7 +160,7 @@ const Navbar = () => {
                       <Link
                         href={link.href}
                         aria-current={isActive ? 'page' : undefined}
-                        className={`text-xl font-serif transition-colors flex items-center gap-3 min-h-12 ${isActive ? 'text-white' : 'text-krudex-muted hover:text-white'
+                        className={`text-xl font-display font-medium transition-colors flex items-center gap-3 min-h-12 ${isActive ? 'text-white' : 'text-krudex-muted hover:text-white'
                           }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >

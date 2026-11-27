@@ -31,7 +31,7 @@ const Process = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="max-w-2xl mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-6xl text-white font-normal mb-6 leading-[1.1] tracking-tight">
+          <h2 className="font-display text-4xl md:text-6xl text-white font-medium mb-6 leading-[1.1] tracking-tight">
             From first call to production.
           </h2>
           <p className="text-krudex-muted text-base leading-relaxed">
@@ -49,12 +49,12 @@ const Process = () => {
               transition={{ duration: 0.4, delay: index * 0.1 }}
               className="bg-krudex-black p-8 flex flex-col"
             >
-              <div className="text-krudex-muted font-mono text-sm mb-6">{step.num} / {step.phase.toUpperCase()}</div>
+              <div className="text-krudex-muted font-display font-medium tabular-nums text-sm tracking-[0.06em] mb-6">{step.num} / {step.phase.toUpperCase()}</div>
               <h3 className="text-white font-medium text-lg mb-3">{step.title}</h3>
               <p className="text-krudex-muted text-sm leading-relaxed">{step.text}</p>
               <div className="mt-auto pt-6 flex flex-wrap gap-2">
                 {step.tags.map((t) => (
-                  <span key={t} className="border border-krudex-border px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-white/60">
+                  <span key={t} className="border border-krudex-border px-2.5 py-1 font-sans font-medium text-[11px] uppercase tracking-[0.1em] text-white/60">
                     {t}
                   </span>
                 ))}

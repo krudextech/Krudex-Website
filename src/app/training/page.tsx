@@ -65,7 +65,7 @@ export default function TrainingPage() {
                   Student training · with NovaSkill Hub
                 </span>
               </div>
-              <h1 className="font-serif text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
+              <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
                 <span className="text-white">AI/ML, Java and Python</span><br />
                 <span className="text-white/45">taught by people who build.</span>
               </h1>
@@ -121,7 +121,7 @@ export default function TrainingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
-            className="font-serif text-4xl md:text-5xl text-white font-bold mb-16"
+            className="font-display text-4xl md:text-5xl text-white font-bold mb-16"
           >
             How the training works.
           </motion.h2>
@@ -159,7 +159,7 @@ export default function TrainingPage() {
               <Handshake aria-hidden="true" className="h-3.5 w-3.5 text-krudex-accent" />
               <span className="text-xs uppercase tracking-[0.2em] text-krudex-accent font-semibold">In collaboration</span>
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl text-white font-bold leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl text-white font-bold leading-tight">
               Krudex Global <span className="text-white/45">×</span> NovaSkill Hub
             </h2>
           </motion.div>
@@ -185,7 +185,7 @@ export default function TrainingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-12"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-12"
           >
             Ready to start learning?
           </motion.h2>
@@ -193,7 +193,7 @@ export default function TrainingPage() {
           <ol className="flex flex-col gap-4 text-sm text-left mb-12">
             {TRAINING.steps.map((step, i) => (
               <li key={step} className="flex items-center gap-4 text-white/80">
-                <span className="w-7 h-7 rounded-full border border-white/25 flex items-center justify-center font-mono text-xs text-white flex-shrink-0">
+                <span className="w-7 h-7 rounded-full border border-white/25 flex items-center justify-center font-display font-medium tabular-nums text-xs text-white flex-shrink-0">
                   {i + 1}
                 </span>
                 {step}

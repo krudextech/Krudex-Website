@@ -11,7 +11,7 @@ const tools = [
   { name: 'Python', style: 'tracking-wider' },
   { name: 'TensorFlow', style: 'font-serif italic' },
   { name: 'PyTorch', style: 'font-bold' },
-  { name: 'OpenAI', style: 'font-mono uppercase' },
+  { name: 'OpenAI', style: 'font-semibold tracking-wider uppercase' },
   { name: 'LangChain', style: 'font-semibold' },
   { name: 'Meta Ads', style: 'font-bold' },
   { name: 'Hugging Face', style: 'italic' },
